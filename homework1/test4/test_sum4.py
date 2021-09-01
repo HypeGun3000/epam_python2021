@@ -5,7 +5,8 @@ def test_sum_four1():
     """
     compute how many tuples (i, j, k, l) is zero
     """
-    assert check_sum_of_four([1, 2, 3], [4, 5, 6], [-1, -5, -3], [-4, -2, -1]) == 11
+    assert check_sum_of_four([1, 2, 3], [4, 5, 6],
+                             [-1, -5, -3], [-4, -2, -1]) == 11
 
 
 def test_sum_four2():
