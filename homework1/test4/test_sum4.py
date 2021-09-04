@@ -1,7 +1,7 @@
 from homework1.test4.sum4 import check_sum_of_four
 
 
-def test_sum_four1():
+def test_sum_four_equals_zero():
     """
     compute how many tuples (i, j, k, l) is zero
     """
@@ -9,7 +9,7 @@ def test_sum_four1():
                              [-1, -5, -3], [-4, -2, -1]) == 11
 
 
-def test_sum_four2():
+def test_sum_four_equals_zero2():
     """
     compute how many tuples (i, j, k, l) is zero
     """
