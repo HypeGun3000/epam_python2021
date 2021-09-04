@@ -1,8 +1,10 @@
-import string
 from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
+    """
+    Find 10 longest words consisting from largest amount of unique symbols
+    """
     lwords = []
     l10words = []
     finallist = []
@@ -35,6 +37,9 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
 
 def get_rarest_char(file_path: str) -> str:
+    """
+    Find rarest symbol for document
+    """
     flist = []
     fulldic = {}
     raresym = []
@@ -60,6 +65,9 @@ def get_rarest_char(file_path: str) -> str:
 
 
 def count_punctuation_chars(file_path: str) -> int:
+    """
+    Count every punctuation char
+    """
     flist = []
     count = 0
     with open(file_path) as fi:
@@ -73,6 +81,9 @@ def count_punctuation_chars(file_path: str) -> int:
 
 
 def count_non_ascii_chars(file_path: str) -> int:
+    """
+    Count every non ascii char
+    """
     flist = []
     with open(file_path) as fi:
         for i in fi:
@@ -86,6 +97,11 @@ def count_non_ascii_chars(file_path: str) -> int:
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
+    """
+    Find most common non ascii char for document
+    :param file_path:
+    :return:
+    """
     flist = []
     nnascii = {}
     with open(file_path) as fi:
