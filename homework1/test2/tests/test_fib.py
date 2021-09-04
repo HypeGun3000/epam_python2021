@@ -1,28 +1,14 @@
 from homework1.test2.check_fib import check_fibonacci
 
 
-def test_fib1():
+def test_simple_sequence():
     """
     Sequence of integers 1-2
     """
     assert check_fibonacci([1, 1, 2])
 
 
-def test_fib2():
-    """
-    Sequence of one integer
-    """
-    assert check_fibonacci([1])
-
-
-def test_fib3():
-    """
-    Sequence of empty integers
-    """
-    assert check_fibonacci([])
-
-
-def test_fib4():
+def test_more_then_3_sequence():
     """
     Long sequence of integers
     """

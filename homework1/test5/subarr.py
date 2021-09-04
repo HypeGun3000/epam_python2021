@@ -13,6 +13,8 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     """
     max_fin = 0
     max1 = 0
+    if k >= len(nums):
+        return sum(nums)
     for i in range(0, len(nums) - 2, 1):
         for j in range(k):
             max1 += nums[i + j]

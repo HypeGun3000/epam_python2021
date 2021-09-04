@@ -3,7 +3,7 @@ import os
 from homework1.test3.check_file import find_maximum_and_minimum
 
 
-def test_minmax():
+def test_min_and_max_simple():
     """
     Check for minimal and maximum integers in file (.txt) (1 and 5)
     """
@@ -12,7 +12,7 @@ def test_minmax():
     assert find_maximum_and_minimum(filename) == (1, 5)
 
 
-def test_minmax1():
+def test_min_and_max_heavy():
     """
     Check for minimal and maximum integers in file (.txt) (6 and 85)
     """

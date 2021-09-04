@@ -15,8 +15,7 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     """
     listmm = []
     with open(file_name) as fi:
-        for line in fi:
-            listmm.extend(line.split())
+        [listmm.extend(line.split()) for line in fi]
         for i in range(len(listmm)):
             listmm[i] = int(listmm[i])
-        return sorted(listmm)[0], sorted(listmm, reverse=True)[0]
+        return min(listmm), max(listmm)
