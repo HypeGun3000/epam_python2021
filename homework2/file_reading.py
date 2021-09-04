@@ -51,7 +51,7 @@ def get_rarest_char(file_path: str) -> str:
             for k in range(len(flist[j])):
                 if flist[j][k] not in fulldic:
                     fulldic[flist[j][k]] = 1
-                else :
+                else:
                     fulldic[flist[j][k]] += 1
         for o in fulldic.values():
             count = o
@@ -103,19 +103,21 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     """
     flist = []
     nnascii = {}
+    comcheck = 0
     with open(file_path) as fi:
         for i in fi:
             flist.extend(i.split())
     for k in range(len(flist)):
         for v in range(len(flist[k])):
             if flist[k][v] not in string.ascii_letters:
+                comcheck += 1
                 if flist[k][v] not in nnascii:
                     nnascii[flist[k][v]] = 1
                 else:
                     nnascii[flist[k][v]] += 1
     count = 0
     for k, v in nnascii.items():
-        if v >= count:
+        if v >= count and v > comcheck // 2:
             count = v
     for k, v in nnascii.items():
         if v == count:
