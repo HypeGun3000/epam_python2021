@@ -100,8 +100,6 @@ def count_non_ascii_chars(file_path: str) -> int:
 def get_most_common_non_ascii_char(file_path: str) -> str:
     """
     Find most common non ascii char for document
-    :param file_path:
-    :return:
     """
     flist = []
     nnascii = {}
@@ -122,4 +120,3 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     for k, v in nnascii.items():
         if v == count:
             return k
-print(get_most_common_non_ascii_char("data.txt"))
