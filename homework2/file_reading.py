@@ -1,4 +1,5 @@
 from typing import List
+import string
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
@@ -121,3 +122,4 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     for k, v in nnascii.items():
         if v == count:
             return k
+print(get_most_common_non_ascii_char("data.txt"))
