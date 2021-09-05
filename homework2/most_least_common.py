@@ -3,7 +3,8 @@ from typing import List, Tuple
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     """
-    Given an array of size n, find the most common and the least common elements.
+    Given an array of size n, find the most common
+    and the least common elements.
     The most common element is the element that appears more than n // 2 times.
     The least common element is the element that appears fewer than other.
     You may assume that the array is non-empty and the most common element
@@ -38,5 +39,3 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
         if v == count:
             finalanswer += (k, )
     return finalanswer
-
-print(major_and_minor_elem([5,6,2,1,6,2,2,2,3,2,2,2,2,6,1,2,2]))
