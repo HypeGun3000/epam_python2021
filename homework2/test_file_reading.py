@@ -4,11 +4,16 @@ from homework2.file_reading import get_longest_diverse_words, \
 
 
 def test_longest_unique_symbols_words():
-    assert get_longest_diverse_words("data.txt") == ['kalyptischen', 'Augenblick,',
-                                                     'Grundmotiv,', 'Evangelium,',
-                                                     'Deutschland', 'unsterblich',
-                                                     'vorfindet.', 'Schauspiel',
-                                                     'Bolschewik', 'Sicherung.']
+    assert get_longest_diverse_words("data.txt") == ['kalyptischen',
+                                                     'Augenblick,',
+                                                     'Grundmotiv,',
+                                                     'Evangelium,',
+                                                     'Deutschland',
+                                                     'unsterblich',
+                                                     'vorfindet.',
+                                                     'Schauspiel',
+                                                     'Bolschewik',
+                                                     'Sicherung.']
 
 
 def test_rarest_char_in_text():
