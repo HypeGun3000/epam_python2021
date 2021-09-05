@@ -1,5 +1,5 @@
-from itertools import product
 from typing import List, Any
+from itertools import product
 
 
 def combinations(*args: List[Any]) -> List[List]:
