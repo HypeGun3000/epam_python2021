@@ -1,6 +1,7 @@
 from homework2.file_reading import (get_longest_diverse_words,
                                     get_rarest_char, count_punctuation_chars,
-                                    count_non_ascii_chars, get_most_common_non_ascii_char)
+                                    count_non_ascii_chars,
+                                    get_most_common_non_ascii_char)
 
 
 def test_longest_unique_symbols_words():
