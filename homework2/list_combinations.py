@@ -1,5 +1,5 @@
+import itertools
 from typing import List, Any
-from itertools import product
 
 
 def combinations(*args: List[Any]) -> List[List]:
@@ -18,7 +18,7 @@ def combinations(*args: List[Any]) -> List[List]:
     """
     flist = []
     final_list = []
-    comb = list(product(*args))
+    comb = list(itertools.product(*args))
     for i in range(len(comb)):
         for j in range(len(comb[i])):
             flist.append(comb[i][j])
