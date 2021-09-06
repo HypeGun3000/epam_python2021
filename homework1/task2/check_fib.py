@@ -9,11 +9,9 @@ def check_fibonacci(data: Sequence[int]) -> bool:
         returns if the given sequence is a Fibonacci sequence
     We guarantee, that the given sequence contain >= 0 integers inside.
     """
-    ldata = len(data)
-    if ldata > 2:
-        for i in range(2, ldata):
+    len_data = len(data)
+    if len_data > 2:
+        for i in range(2, len_data):
             if data[i] != data[i-1] + data[i-2]:
                 return False
         return True
-    else:
-        return False

@@ -1,4 +1,4 @@
-from homework1.test4.sum4 import check_sum_of_four
+from homework1.task4.sum4 import check_sum_of_four
 
 
 def test_sum_four_equals_zero():

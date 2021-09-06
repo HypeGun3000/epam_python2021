@@ -1,6 +1,6 @@
 import os
 
-from homework1.test3.check_file import find_maximum_and_minimum
+from homework1.task3.check_file import find_maximum_and_minimum
 
 
 def test_min_and_max_simple():
