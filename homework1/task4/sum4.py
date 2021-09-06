@@ -12,6 +12,7 @@ def check_sum_of_four(a: List[int], b: List[int],
     have same length of N where 0 ≤ N ≤ 1000.
     """
     sum_of_first_two_lists = []
+    #sum_of_second_two_lists = []
     count = 0
     for i in a:
         for j in b:
@@ -20,4 +21,8 @@ def check_sum_of_four(a: List[int], b: List[int],
         for p in d:
             if -(k + p) in sum_of_first_two_lists:
                 count += 1
+    #for o in sum_of_first_two_lists:
+        #for q in sum_of_second_two_lists:
+            #if o + q == 0:
+                #count += 1
     return count
