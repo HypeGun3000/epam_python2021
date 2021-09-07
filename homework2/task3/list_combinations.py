@@ -20,12 +20,13 @@ def combinations(*args: List[Any]) -> List[List]:
     flist = []
     final_list = []
     comb = list(product(*args))
-    print(list(map(flist.append, comb)))
+    print(comb)
     #for i in range(len(comb)):
         #for j in range(len(comb[i])):
             #flist.append(comb[i][j])
         #final_list.append(flist)
         #flist = []
     return final_list
+
 print(combinations([1, 2], [3, 4]))
 
