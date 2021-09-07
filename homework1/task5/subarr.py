@@ -15,11 +15,8 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     len_nums = len(nums)
     if k > len_nums:
         k = len_nums
-    for i in range(k):
-        for j in range(len_nums - i):
-            sum_of_sequence_less_then_k = nums[j]
-            for p in range(1, i + 1):
-                sum_of_sequence_less_then_k += nums[j + p]
-            if sum_of_sequence_less_then_k > first_num_for_checking:
-                first_num_for_checking = sum_of_sequence_less_then_k
+    for i in range(len_nums):
+        for j in range(1, k + 1):
+            if sum(nums[i:i + j]) > first_num_for_checking and i + j <= len_nums:
+                first_num_for_checking = sum(nums[i:i + j])
     return first_num_for_checking
