@@ -1,4 +1,4 @@
-from homework2.function_cache import func
+from homework2.task4.function_cache import func
 
 cache_func = func
 

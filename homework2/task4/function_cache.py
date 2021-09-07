@@ -2,15 +2,15 @@ from typing import Callable
 
 
 def cache(func: Callable) -> Callable:
-    cache_key = {}
+    cache_dictionary = {}
 
     def wrapper(*args, **kwargs):
-        nonlocal cache_key
+        nonlocal cache_dictionary
         key = (args, tuple(kwargs.items()))
-        if key not in cache_key:
+        if key not in cache_dictionary:
             response = func(*args, **kwargs)
-            cache_key[key] = response
-        return cache_key[key]
+            cache_dictionary[key] = response
+        return cache_dictionary[key]
     return wrapper
 
 

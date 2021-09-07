@@ -1,4 +1,4 @@
-from homework2.list_combinations import combinations
+from homework2.task3.list_combinations import combinations
 
 
 def test_simple_combination():

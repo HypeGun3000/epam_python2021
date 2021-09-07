@@ -1,6 +1,6 @@
 import string
 
-from homework2.custom_range import custom_range
+from homework2.task5.custom_range import custom_range
 
 
 def test_one_char_range_lowercase():

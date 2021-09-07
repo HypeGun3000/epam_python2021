@@ -1,4 +1,4 @@
-from homework2.most_least_common import major_and_minor_elem
+from homework2.task2.most_least_common import major_and_minor_elem
 
 
 def test_max_common_and_min_char_in_list():
