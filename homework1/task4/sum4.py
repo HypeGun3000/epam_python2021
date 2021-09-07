@@ -11,18 +11,16 @@ def check_sum_of_four(a: List[int], b: List[int],
     We guarantee, that all A, B, C, D
     have same length of N where 0 ≤ N ≤ 1000.
     """
-    sum_of_first_two_lists = []
-    #sum_of_second_two_lists = []
-    count = 0
+    count_of_tuples_is_zero = 0
+    dict_of_first_two_sums = {}
     for i in a:
         for j in b:
-            sum_of_first_two_lists.append(i + j)
+            if i + j not in dict_of_first_two_sums:
+                dict_of_first_two_sums[i + j] = 1
+            else:
+                dict_of_first_two_sums[i + j] += 1
     for k in c:
-        for p in d:
-            if -(k + p) in sum_of_first_two_lists:
-                count += 1
-    #for o in sum_of_first_two_lists:
-        #for q in sum_of_second_two_lists:
-            #if o + q == 0:
-                #count += 1
-    return count
+        for l in d:
+            if -(k + l) in dict_of_first_two_sums:
+                count_of_tuples_is_zero += dict_of_first_two_sums.get((-(k+l)), None)
+    return count_of_tuples_is_zero
