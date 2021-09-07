@@ -20,7 +20,8 @@ def check_sum_of_four(a: List[int], b: List[int],
             else:
                 dict_of_first_two_sums[i + j] += 1
     for k in c:
-        for l in d:
-            if -(k + l) in dict_of_first_two_sums:
-                count_of_tuples_is_zero += dict_of_first_two_sums.get((-(k+l)), None)
+        for li in d:
+            if -(k + li) in dict_of_first_two_sums:
+                count_of_tuples_is_zero += \
+                    dict_of_first_two_sums.get((-(k+li)), None)
     return count_of_tuples_is_zero
