@@ -1,6 +1,5 @@
-from typing import List, Tuple
-
 from collections import defaultdict
+from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:

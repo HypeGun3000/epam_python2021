@@ -1,6 +1,6 @@
 import string
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:

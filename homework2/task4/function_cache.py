@@ -1,5 +1,5 @@
-from typing import Callable
 import pickle
+from typing import Callable
 
 
 def cache(function: Callable) -> Callable:
