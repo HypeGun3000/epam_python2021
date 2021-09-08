@@ -9,7 +9,8 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     """
     with open(file_path, 'r', encoding="unicode-escape") as fi:
         text = fi.read()
-        list_of_words_in_text = (''.join(ch for ch in text if ch not in string.punctuation)).split()
+        list_of_words_in_text = \
+        (''.join(ch for ch in text if ch not in string.punctuation)).split()
     list_of_unique_symbols = []
     count_of_unique_symbols = 0
     dict_of_words_unique_sym = {}
@@ -19,14 +20,16 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
                 list_of_unique_symbols.append(j)
                 count_of_unique_symbols += 1
         if list_of_words_in_text[i] not in dict_of_words_unique_sym:
-            dict_of_words_unique_sym[list_of_words_in_text[i]] = count_of_unique_symbols
+            dict_of_words_unique_sym[list_of_words_in_text[i]]\
+                = count_of_unique_symbols
         list_of_unique_symbols = []
         count_of_unique_symbols = 0
 
     list_unique_symbols_dict = []
     for k, v in dict_of_words_unique_sym.items():
         list_unique_symbols_dict.append((k, v))
-    sorted_list = sorted(list_unique_symbols_dict, key=lambda x: x[1], reverse=True)
+    sorted_list = \
+        sorted(list_unique_symbols_dict, key=lambda x: x[1], reverse=True)
 
     ten_largest_words = []
     for i in range(10):
@@ -98,7 +101,10 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     dict_of_non_ascii_chars = defaultdict(int)
     with open(file_path, 'r', encoding="unicode-escape") as fi:
         text = fi.read()
-        list_of_words_in_text = ''.join(ch for ch in text if ch not in string.ascii_letters and ch != ' ' and ch != '\n')
+        list_of_words_in_text =\
+            ''.join(ch for ch in text
+                    if ch not in string.ascii_letters
+                    and ch != ' ' and ch != '\n')
     for i in list_of_words_in_text:
         dict_of_non_ascii_chars[i] += 1
         count_of_every_non_ascii_char += 1

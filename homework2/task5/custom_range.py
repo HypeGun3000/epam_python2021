@@ -34,10 +34,13 @@ def custom_range(*args):
         for i in range(0, list_of_symbols_from_function[0]):
             sequence_of_numbers.append(i)
     elif len(list_of_symbols_from_function) == 2:
-        for i in range(list_of_symbols_from_function[0], list_of_symbols_from_function[1]):
+        for i in range(list_of_symbols_from_function[0],
+                       list_of_symbols_from_function[1]):
             sequence_of_numbers.append(i)
     elif len(list_of_symbols_from_function) == 3:
-        for i in range(list_of_symbols_from_function[0], list_of_symbols_from_function[1], list_of_symbols_from_function[2]):
+        for i in range(list_of_symbols_from_function[0],
+                       list_of_symbols_from_function[1],
+                       list_of_symbols_from_function[2]):
             sequence_of_numbers.append(i)
     for i in sequence_of_numbers:
         for k, v in dictionary_of_ascii_sym.items():

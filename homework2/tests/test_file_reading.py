@@ -5,16 +5,12 @@ from homework2.task1.file_reading import get_longest_diverse_words,\
 
 
 def test_longest_unique_symbols_words():
-    assert get_longest_diverse_words("data.txt") == ['unmißverständliche',
-                                                              'Bevölkerungsabschub',
-                                                              'Kollektivschuldiger',
-                                                              'Werkstättenlandschaft',
-                                                              'Schicksalsfiguren',
-                                                              'Selbstverständlich',
-                                                              'Fingerabdrucks',
-                                                              'Friedensabstimmung',
-                                                              'außenpolitisch',
-                                                              'Seinsverdichtungen']
+    assert get_longest_diverse_words("data.txt") \
+           == ['unmißverständliche', 'Bevölkerungsabschub',
+               'Kollektivschuldiger','Werkstättenlandschaft',
+               'Schicksalsfiguren', 'Selbstverständlich',
+               'Fingerabdrucks', 'Friedensabstimmung',
+               'außenpolitisch','Seinsverdichtungen']
 
 
 def test_rarest_char_in_text():

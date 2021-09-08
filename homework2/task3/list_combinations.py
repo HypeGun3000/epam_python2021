@@ -18,7 +18,3 @@ def combinations(*args: List[Any]) -> List[List]:
     ]
     """
     return list(map(list, list(product(*args))))
-
-
-print(combinations([1, 2], [3, 4]))
-

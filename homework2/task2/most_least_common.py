@@ -27,6 +27,7 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
 
     for i in inp:
         dict_amount_of_symbols[i] += 1
-    most_and_least_common_elements = (max(dict_amount_of_symbols, key=value_getter),
-                                      min(dict_amount_of_symbols, key=value_getter))
+    most_and_least_common_elements\
+        = (max(dict_amount_of_symbols, key=value_getter),
+           min(dict_amount_of_symbols, key=value_getter))
     return most_and_least_common_elements
