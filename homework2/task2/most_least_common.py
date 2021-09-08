@@ -20,13 +20,12 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
 
     """
     dict_amount_of_symbols = defaultdict(int)
-
-    def value_getter(a):
-        return dict_amount_of_symbols.get(a)
-
     for i in inp:
         dict_amount_of_symbols[i] += 1
-    most_and_least_common_elements\
-        = (max(dict_amount_of_symbols, key=value_getter),
-           min(dict_amount_of_symbols, key=value_getter))
+    most_and_least_common_elements = (max(dict_amount_of_symbols.keys(),
+                                          key=lambda k:
+                                          dict_amount_of_symbols[k]),
+                                      min(dict_amount_of_symbols.keys(),
+                                          key=lambda k:
+                                          dict_amount_of_symbols[k]))
     return most_and_least_common_elements
