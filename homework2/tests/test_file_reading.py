@@ -6,7 +6,7 @@ from homework2.task1.file_reading import (count_non_ascii_chars,
 
 
 def test_longest_unique_symbols_words():
-    assert get_longest_diverse_words("/homework2/tests/data.txt") \
+    assert get_longest_diverse_words("data.txt") \
            == ['unmißverständliche', 'Bevölkerungsabschub',
                'Kollektivschuldiger', 'Werkstättenlandschaft',
                'Schicksalsfiguren', 'Selbstverständlich',
@@ -15,12 +15,12 @@ def test_longest_unique_symbols_words():
 
 
 def test_rarest_char_in_text():
-    assert get_rarest_char("/homework2/tests/data.txt")\
+    assert get_rarest_char("data.txt")\
             == "›, ‹, Y, î, ’, X, (, )"
 
 
 def test_count_punctuation_chars():
-    assert count_punctuation_chars("/homework2/tests/data.txt") == 5305
+    assert count_punctuation_chars("data.txt") == 5305
 
 
 def test_count_non_ascii_chars():
