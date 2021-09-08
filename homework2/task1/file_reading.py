@@ -8,7 +8,7 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     Find 10 longest words consisting from largest amount of unique symbols
     """
     with open(file_path, 'r', encoding="unicode-escape") as fi:
-        text = fi.read()
+        text = fi.read().splitlines()
         list_of_words_in_text = (''.join(ch for ch in text if ch not in string.punctuation)).split()
     print(list_of_words_in_text)
     list_of_unique_symbols = []
@@ -27,11 +27,11 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     list_unique_symbols_dict = []
     for k, v in dict_of_words_unique_sym.items():
         list_unique_symbols_dict.append((k, v))
-    a = sorted(list_unique_symbols_dict, key=lambda x: x[1], reverse=True)
+    sorted_list = sorted(list_unique_symbols_dict, key=lambda x: x[1], reverse=True)
 
     ten_largest_words = []
     for i in range(10):
-        ten_largest_words.append(a[i][0])
+        ten_largest_words.append(sorted_list[i][0])
 
     return ten_largest_words
 
@@ -40,10 +40,13 @@ def get_rarest_char(file_path: str) -> str:
     """
     Find rarest symbol for document
     """
+
+    global count_of_symbols
+
     most_rare_symbols = []
     with open(file_path, 'r', encoding="unicode-escape") as fi:
-        text = fi.read()
-        file = ''.join(ch for ch in text if ch != ' ' and ch != '\n')
+        text = fi.read().splitlines()
+        file = ''.join(ch for ch in text if ch != ' ')
     dict_of_symbols = defaultdict(int)
     for i in file:
         dict_of_symbols[i] += 1
@@ -59,7 +62,7 @@ def get_rarest_char(file_path: str) -> str:
         if v == count_of_symbols:
             most_rare_symbols.append(k)
 
-    return most_rare_symbols
+    return ', '.join(most_rare_symbols)
 
 
 def count_punctuation_chars(file_path: str) -> int:
@@ -68,7 +71,7 @@ def count_punctuation_chars(file_path: str) -> int:
     """
     count_of_punctuation_chars = 0
     with open(file_path) as fi:
-        text = fi.read()
+        text = fi.read().splitlines()
         for i in text:
             if i in string.punctuatuin:
                 count_of_punctuation_chars += 1
@@ -79,15 +82,12 @@ def count_non_ascii_chars(file_path: str) -> int:
     """
     Count every non ascii char
     """
-    list_of_words_in_text = []
     with open(file_path) as fi:
-        for i in fi:
-            list_of_words_in_text.extend(i.split())
+        text = fi.read().splitlines()
     count_of_non_ascii_chars = 0
-    for k in range(len(list_of_words_in_text)):
-        for v in range(len(list_of_words_in_text[k])):
-            if list_of_words_in_text[k][v] not in string.ascii_letters:
-                count_of_non_ascii_chars += 1
+    for i in text:
+        if i not in string.ascii_letters:
+            count_of_non_ascii_chars += 1
     return count_of_non_ascii_chars
 
 
@@ -95,24 +95,18 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     """
     Find most common non ascii char for document
     """
-    list_of_words_in_text = []
-    dict_of_non_ascii_chars = {}
+    count_of_every_non_ascii_char = 0
+    dict_of_non_ascii_chars = defaultdict(int)
     amount_of_non_ascii_chars = 0
     with open(file_path) as fi:
-        for i in fi:
-            list_of_words_in_text.extend(i.split())
-    for k in range(len(list_of_words_in_text)):
-        for v in range(len(list_of_words_in_text[k])):
-            if list_of_words_in_text[k][v] not in string.ascii_letters:
-                amount_of_non_ascii_chars += 1
-                if list_of_words_in_text[k][v] not in dict_of_non_ascii_chars:
-                    dict_of_non_ascii_chars[list_of_words_in_text[k][v]] = 1
-                else:
-                    dict_of_non_ascii_chars[list_of_words_in_text[k][v]] += 1
-    count_of_every_non_ascii_char = 0
+        text = fi.read().splitlines()
+        list_of_words_in_text = ''.join(ch for ch in text if ch not in string.ascii_letters)
+    for i in list_of_words_in_text:
+        dict_of_non_ascii_chars[i] += 1
+        count_of_every_non_ascii_char += 1
     for k, v in dict_of_non_ascii_chars.items():
-        if v >= count_of_every_non_ascii_char and v > amount_of_non_ascii_chars // 2:
-            count_of_every_non_ascii_char = v
+        if v > count_of_every_non_ascii_char / 2 and v > amount_of_non_ascii_chars:
+            amount_of_non_ascii_chars = v
     for k, v in dict_of_non_ascii_chars.items():
-        if v == count_of_every_non_ascii_char:
+        if v == amount_of_non_ascii_chars:
             return k
