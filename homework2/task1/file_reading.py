@@ -10,7 +10,8 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     with open(file_path, 'r', encoding="unicode-escape") as fi:
         text = fi.read()
         list_of_words_in_text = \
-        (''.join(ch for ch in text if ch not in string.punctuation)).split()
+            (''.join(ch for ch in text
+                     if ch not in string.punctuation)).split()
     list_of_unique_symbols = []
     count_of_unique_symbols = 0
     dict_of_words_unique_sym = {}
