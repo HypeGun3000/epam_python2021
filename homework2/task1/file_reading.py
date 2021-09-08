@@ -1,83 +1,77 @@
 import string
 from typing import List
+from collections import defaultdict
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
     """
     Find 10 longest words consisting from largest amount of unique symbols
     """
-    list_of_words_in_text = []
-    ten_longest_words = []
-    words_with_unique_symbols = []
-    amount_of_unique_symbols = {}
-    with open(file_path) as fi:
-        for i in fi:
-            list_of_words_in_text.extend(i.split())
-            for k in range(len(list_of_words_in_text)):
-                for o in range(len(list_of_words_in_text[k])):
-                    if list_of_words_in_text[k][o] not in amount_of_unique_symbols:
-                        amount_of_unique_symbols[list_of_words_in_text[k][o]] = 1
-                    else:
-                        amount_of_unique_symbols[list_of_words_in_text[k][o]] += 1
-                flag = True
-                for u in amount_of_unique_symbols.values():
-                    if u > 1:
-                        flag = False
-                        break
-                if flag is True:
-                    words_with_unique_symbols.append(list_of_words_in_text[k])
-            amount_of_unique_symbols = {}
-            list_of_words_in_text = []
+    with open(file_path, 'r', encoding="unicode-escape") as fi:
+        text = fi.read()
+        list_of_words_in_text = (''.join(ch for ch in text if ch not in string.punctuation)).split()
+    print(list_of_words_in_text)
+    list_of_unique_symbols = []
+    count_of_unique_symbols = 0
+    dict_of_words_unique_sym = {}
+    for i in range(len(list_of_words_in_text)):
+        for j in list_of_words_in_text[i]:
+            if j not in list_of_unique_symbols:
+                list_of_unique_symbols.append(j)
+                count_of_unique_symbols += 1
+        if list_of_words_in_text[i] not in dict_of_words_unique_sym:
+            dict_of_words_unique_sym[list_of_words_in_text[i]] = count_of_unique_symbols
+        list_of_unique_symbols = []
+        count_of_unique_symbols = 0
 
-        words_with_unique_symbols = sorted(words_with_unique_symbols, key=len, reverse=True)
-        amount_of_longest_words = 10
-        if len(words_with_unique_symbols) < amount_of_longest_words:
-            amount_of_longest_words = len(words_with_unique_symbols)
-        [ten_longest_words.append(words_with_unique_symbols[j]) for j in range(amount_of_longest_words)]
-        return ten_longest_words
+    list_unique_symbols_dict = []
+    for k, v in dict_of_words_unique_sym.items():
+        list_unique_symbols_dict.append((k, v))
+    a = sorted(list_unique_symbols_dict, key=lambda x: x[1], reverse=True)
+
+    ten_largest_words = []
+    for i in range(10):
+        ten_largest_words.append(a[i][0])
+
+    return ten_largest_words
 
 
 def get_rarest_char(file_path: str) -> str:
     """
     Find rarest symbol for document
     """
-    list_of_words_in_text = []
-    dict_of_symbols = {}
     most_rare_symbols = []
-    with open(file_path) as fi:
-        for i in fi:
-            list_of_words_in_text.extend(i.split())
-        for j in range(len(list_of_words_in_text)):
-            for k in range(len(list_of_words_in_text[j])):
-                if list_of_words_in_text[j][k] not in dict_of_symbols:
-                    dict_of_symbols[list_of_words_in_text[j][k]] = 1
-                else:
-                    dict_of_symbols[list_of_words_in_text[j][k]] += 1
-        for o in dict_of_symbols.values():
-            count_of_symbols = o
-            break
-        for k, v in dict_of_symbols.items():
-            if v < count_of_symbols:
-                count_of_symbols = v
-        for k, v in dict_of_symbols.items():
-            if v == count_of_symbols:
-                most_rare_symbols.append(k)
-        return ', '.join(most_rare_symbols)
+    with open(file_path, 'r', encoding="unicode-escape") as fi:
+        text = fi.read()
+        file = ''.join(ch for ch in text if ch != ' ' and ch != '\n')
+    dict_of_symbols = defaultdict(int)
+    for i in file:
+        dict_of_symbols[i] += 1
+
+    for o in dict_of_symbols.values():
+        count_of_symbols = o
+        break
+
+    for k, v in dict_of_symbols.items():
+        if v < count_of_symbols:
+            count_of_symbols = v
+    for k, v in dict_of_symbols.items():
+        if v == count_of_symbols:
+            most_rare_symbols.append(k)
+
+    return most_rare_symbols
 
 
 def count_punctuation_chars(file_path: str) -> int:
     """
     Count every punctuation char
     """
-    list_of_words_in_text = []
     count_of_punctuation_chars = 0
     with open(file_path) as fi:
-        for i in fi:
-            list_of_words_in_text.extend(i.split())
-        for k in range(len(list_of_words_in_text)):
-            for j in range(len(list_of_words_in_text[k])):
-                if list_of_words_in_text[k][j] in string.punctuation:
-                    count_of_punctuation_chars += 1
+        text = fi.read()
+        for i in text:
+            if i in string.punctuatuin:
+                count_of_punctuation_chars += 1
     return count_of_punctuation_chars
 
 

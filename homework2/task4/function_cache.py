@@ -1,19 +1,21 @@
 from typing import Callable
+import pickle
 
 
-def cache(func: Callable) -> Callable:
+def cache(function: Callable) -> Callable:
     cache_dictionary = {}
 
     def wrapper(*args, **kwargs):
         nonlocal cache_dictionary
         key = (args, tuple(kwargs.items()))
-        if key not in cache_dictionary:
-            response = func(*args, **kwargs)
-            cache_dictionary[key] = response
-        return cache_dictionary[key]
+        bite_code = pickle.dumps(key)
+        if bite_code not in cache_dictionary:
+            response = function(*args, **kwargs)
+            cache_dictionary[bite_code] = response
+        return cache_dictionary[bite_code]
     return wrapper
 
 
 @cache
 def func(a, b):
-    return (a ** b) ** 2
+    return a * b

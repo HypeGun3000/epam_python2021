@@ -17,16 +17,8 @@ def combinations(*args: List[Any]) -> List[List]:
         [2, 4],
     ]
     """
-    flist = []
-    final_list = []
-    comb = list(product(*args))
-    print(comb)
-    #for i in range(len(comb)):
-        #for j in range(len(comb[i])):
-            #flist.append(comb[i][j])
-        #final_list.append(flist)
-        #flist = []
-    return final_list
+    return list(map(list, list(product(*args))))
+
 
 print(combinations([1, 2], [3, 4]))
 

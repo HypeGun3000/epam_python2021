@@ -1,5 +1,7 @@
 from typing import List, Tuple
 
+from collections import defaultdict
+
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     """
@@ -18,24 +20,13 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     Output: 2, 1
 
     """
-    checker = {}
-    finalanswer = ()
+    dict_amount_of_symbols = defaultdict(int)
+
+    def value_getter(a):
+        return dict_amount_of_symbols.get(a)
+
     for i in inp:
-        if i not in checker:
-            checker[i] = 1
-        else:
-            checker[i] += 1
-    count = 0
-    for k, v in checker.items():
-        if v > count and v > len(inp) // 2:
-            count = v
-    for k, v in checker.items():
-        if v == count:
-            finalanswer += (k, )
-    for k, v in checker.items():
-        if v < count:
-            count = v
-    for k, v in checker.items():
-        if v == count:
-            finalanswer += (k, )
-    return finalanswer
+        dict_amount_of_symbols[i] += 1
+    most_and_least_common_elements = (max(dict_amount_of_symbols, key=value_getter),
+                                      min(dict_amount_of_symbols, key=value_getter))
+    return most_and_least_common_elements
