@@ -14,13 +14,4 @@ def slow_calculate(value):
 
 if __name__ == '__main__':
     with Pool(processes=50) as pool:
-        print(pool.map(slow_calculate, [i for i in range(1, 51)]))
-        print(pool.map(slow_calculate, [i for i in range(51, 101)]))
-        print(pool.map(slow_calculate, [i for i in range(101, 151)]))
-        print(pool.map(slow_calculate, [i for i in range(151, 201)]))
-        print(pool.map(slow_calculate, [i for i in range(201, 251)]))
-        print(pool.map(slow_calculate, [i for i in range(251, 301)]))
-        print(pool.map(slow_calculate, [i for i in range(301, 351)]))
-        print(pool.map(slow_calculate, [i for i in range(351, 401)]))
-        print(pool.map(slow_calculate, [i for i in range(401, 451)]))
-        print(pool.map(slow_calculate, [i for i in range(451, 501)]))
+        print(pool.map(slow_calculate, [i for i in range(1, 501)]))
