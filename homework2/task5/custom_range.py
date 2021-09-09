@@ -29,4 +29,4 @@ def custom_range(*args):
     for i in sequence_of_numbers:
         sequence_of_chars.append(args[0][i])
 
-    return sequence_of_chars
+    return [args[0][i] for i in sequence_of_numbers]
