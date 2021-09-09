@@ -14,8 +14,14 @@ Write a function that detects if a number is Armstrong number in functionaly sty
 
 
 def is_armstrong(number: int) -> bool:
-    ...
+
+    def pow_number(nums: list):
+        return number * len(nums)
+
+    list_of_single_nums = [int(i) for i in str(number)]
+    armstrong_sequence = map(list_of_single_nums**len(list_of_single_nums), list_of_single_nums)
 
 
-assert is_armstrong(153) is True, 'Is Armstrong number'
-assert is_armstrong(10) is False, 'Is not Armstrong number'
+print(is_armstrong(20))
+#assert is_armstrong(153) is True, 'Is Armstrong number'
+#assert is_armstrong(10) is False, 'Is not Armstrong number'
