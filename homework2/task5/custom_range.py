@@ -13,7 +13,6 @@ def custom_range(*args):
     == ['p', 'n', 'l', 'j', 'h']
     """
     sequence_of_numbers = []
-    sequence_of_chars = []
     if len(args) == 2:
         for i in range(0, args[0].index(args[1])):
             sequence_of_numbers.append(i)
