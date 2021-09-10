@@ -26,7 +26,4 @@ def custom_range(*args):
                        args[0].index(args[2]),
                        args[3]):
             sequence_of_numbers.append(i)
-    for i in sequence_of_numbers:
-        sequence_of_chars.append(args[0][i])
-
     return [args[0][i] for i in sequence_of_numbers]
