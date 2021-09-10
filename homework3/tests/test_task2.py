@@ -1,0 +1,1 @@
+#from homework3.task2.multiprocessing_module import
