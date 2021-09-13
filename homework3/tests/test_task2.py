@@ -1,7 +1,7 @@
-from homework3.task2.multiprocessing_module import slow_calculate,\
-                                                   multiprocessing
-
 import time
+
+from homework3.task2.multiprocessing_module import (multiprocessing,
+                                                    slow_calculate)
 
 
 def test_of_time_spending():

@@ -1,6 +1,5 @@
 from homework3.task1.cache_parametrized import cache
 
-
 counter = 0
 
 
