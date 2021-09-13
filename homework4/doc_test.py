@@ -21,6 +21,10 @@ def fizzbuzz(n: int) -> List[str]:
      "Робот Фортран, чисть картошку!"
     """
     fuzz_buzz_list = []
+    if n <= 0:
+        raise ValueError("n must be more then 0")
+    elif not isinstance(n, int):
+        raise ValueError("n must be integer")
     for i in range(1, n+1):
         if i % 3 == 0:
             fuzz_buzz_list.append("fizz")
@@ -29,3 +33,9 @@ def fizzbuzz(n: int) -> List[str]:
         else:
             fuzz_buzz_list.append(str(i))
     return fuzz_buzz_list
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
