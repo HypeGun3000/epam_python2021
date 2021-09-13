@@ -16,5 +16,6 @@ def multiprocessing(func):
     list_for_get_res_of_processes = []
     pool = Pool(50)
     pool_res = pool.map(func, [i for i in range(1, 501)])
+    pool.terminate()
     list_for_get_res_of_processes.append(pool_res)
     return list_for_get_res_of_processes

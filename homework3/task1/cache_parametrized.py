@@ -5,10 +5,10 @@ from typing import Callable
 def cache(times):
     count = times
 
-    def func(function: Callable) -> Callable:
+    def wrapper(function: Callable) -> Callable:
         cache_dictionary = {}
 
-        def wrapper(*args, **kwargs):
+        def inner_func(*args, **kwargs):
             nonlocal times
             nonlocal count
             nonlocal cache_dictionary
@@ -20,8 +20,6 @@ def cache(times):
             if bite_code not in cache_dictionary:
                 response = function(*args, **kwargs)
                 cache_dictionary[bite_code] = response
-            print(cache_dictionary[bite_code])
             count -= 1
-            return cache_dictionary
-        return wrapper
-    return func
+        return inner_func
+    return wrapper

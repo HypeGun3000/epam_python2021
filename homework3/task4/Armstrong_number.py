@@ -17,7 +17,4 @@ def is_armstrong(number: int) -> bool:
     list_of_single_nums = [int(i) for i in str(number)]
     armstrong_sequence = list(map(lambda x: x**len(list_of_single_nums),
                                   list_of_single_nums))
-    if sum(armstrong_sequence) == number:
-        return True
-    else:
-        return False
+    return sum(armstrong_sequence) == number
