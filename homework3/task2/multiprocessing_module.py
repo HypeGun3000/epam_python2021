@@ -10,19 +10,15 @@ def slow_calculate(value):
     time.sleep(random.randint(1, 3))
     data = hashlib.md5(str(value).encode()).digest()
     return sum(struct.unpack('<' + 'B' * len(data), data))
-#if __name__ == '__main__':
-    #with Pool(processes=50) as pool:
-        #print(pool.map(slow_calculate, [i for i in range(1, 501)]))
 
 
-def mukti(func):
-    start_time = time.time()
-    if __name__ == '__main__':
-        pool = Pool(processes=50)
-        resault = pool.map(func, [i for i in range(1, 501)])
-    a = time.time() - start_time
-    return a
+def multiprocessing(func):
+    list_for_get_res_of_processes = []
+    pool = Pool(50)
+    pool_res = pool.map(func, [i for i in range(1, 501)])
+    list_for_get_res_of_processes.append(pool_res)
+    return list_for_get_res_of_processes
 
 
 
-print(mukti(slow_calculate))
+

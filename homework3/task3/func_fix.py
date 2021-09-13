@@ -9,7 +9,7 @@ class Filter:
         self.functions = functions
 
     def apply(self, data):
-
+        print(self.functions)
         return [item for item in data if all([i(item) for i in self.functions])]
 
 
@@ -21,11 +21,13 @@ def make_filter(**keywords):
     """
         Generate filter object for specified keywords
     """
-    filter_funcs = []
+    filter_funcs = ()
     for key, value in keywords.items():
         def keyword_filter_func(value):
             return value[key] == value
-        filter_funcs.append(keyword_filter_func)
+        filter_funcs += (keyword_filter_func,)
+        print(filter_funcs)
+        print(Filter(filter_funcs))
     return Filter(filter_funcs)
 
 
@@ -45,7 +47,7 @@ sample_data = [
     }
 ]
 
-make_filter(name='polly', type='bird').apply(sample_data)
+print(make_filter(name='polly', type='bird').apply(sample_data))
 
 # make_filter(name='polly', type='bird').apply(sample_data) should return only second entry from the list
 
