@@ -15,6 +15,7 @@ sample_data = [
     }
 ]
 
+
 def test_true_data():
     assert make_filter(name="polly", type="bird").apply(sample_data) \
            == [{'is_dead': True, 'kind': 'parrot',
