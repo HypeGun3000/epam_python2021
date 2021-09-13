@@ -25,11 +25,3 @@ def cache(times):
             return cache_dictionary
         return wrapper
     return func
-<<<<<<< HEAD
-=======
-
-
-@cache(times=2)
-def f():
-    return input("? ")
->>>>>>> 9f264801c0a1ce03d9e8a18400b596c00ba72601
