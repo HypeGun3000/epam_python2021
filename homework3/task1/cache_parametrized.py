@@ -21,5 +21,6 @@ def cache(times):
                 response = function(*args, **kwargs)
                 cache_dictionary[bite_code] = response
             count -= 1
+            return cache_dictionary[bite_code]
         return inner_func
     return wrapper
