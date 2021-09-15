@@ -1,13 +1,28 @@
-from homework4.task1.doc_test import fizzbuzz
+from homework4.task1.read_file import read_magic_number
+import pytest
+from pathlib import Path
 
 
-def test_fizzbuzz_sequence_until_20():
-    assert fizzbuzz(20) == ['1', '2', 'fizz', '4', 'buzz',
-                            'fizz', '7', '8', 'fizz',
-                            'buzz', '11', 'fizz', '13',
-                            '14', 'fizz', '16', '17',
-                            'fizz', '19', 'buzz']
+root = Path(__file__).parent
+data_file = root / 'data.txt'
 
 
-def test_fizzbuzz_sequence_until_5():
-    assert fizzbuzz(5) == ['1', '2', 'fizz', '4', 'buzz']
+@pytest.fixture
+def fixture_for_all_tests():
+    return read_magic_number
+
+
+def test_file_with_non_int_first_line(fixture_for_all_tests):
+    assert fixture_for_all_tests("data.txt") is False
+
+
+def test_file_with_true_first_line(fixture_for_all_tests):
+    assert fixture_for_all_tests("data2.txt") is True
+
+
+def test_file_false_int(fixture_for_all_tests):
+    assert fixture_for_all_tests("data3.txt") is False
+
+
+def test_empty_file(fixture_for_all_tests):
+    assert fixture_for_all_tests("data4.txt") is False

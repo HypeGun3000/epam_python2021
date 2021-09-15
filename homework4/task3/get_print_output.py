@@ -15,7 +15,20 @@ You will learn:
  - how to write to stderr
  - how to test output to the stderr and stdout
 """
+import sys
 
 
 def my_precious_logger(text: str):
-    pass
+    try:
+        if text.split()[0] == 'error':
+            raise ValueError('File not found')
+        else:
+            return sys.stdout.write(text)
+    except ValueError:
+        return sys.stderr.write("error: file not found\n")
+
+
+print(my_precious_logger('error by file'))
+
+print(my_precious_logger("OK"))
+

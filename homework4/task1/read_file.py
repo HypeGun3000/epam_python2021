@@ -22,10 +22,8 @@ You will learn:
 *** https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 **** https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 """
-import pytest
 
 
-@pytest.fixture()
 def read_magic_number(path: str) -> bool:
     try:
         with open(path) as file:
@@ -37,8 +35,6 @@ def read_magic_number(path: str) -> bool:
             if isinstance(num, int) and 1 <= num < 3:
                 return True
             elif num < 1 or num > 3:
-                raise ValueError("Number not in [1:3)")
+                return False
     except IOError:
         print("File not accessible")
-    finally:
-        file.close()
