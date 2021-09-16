@@ -29,13 +29,3 @@ def fizzbuzz(n: int) -> List[str]:
             print("'n' must be more then 0 and integer")
     except TypeError:
         print("Write number (integer)")
-
-
-fizzbuzz(4)
-fizzbuzz(25)
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-    fizzbuzz(4)
-    fizzbuzz(25)
