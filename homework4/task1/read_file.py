@@ -23,18 +23,17 @@ You will learn:
 **** https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 """
 
+import os
+
+
+def check_file(path: str) -> bool:
+    if not os.path.exists(path):
+        raise ValueError("No such file")
+    return os.path.exists(path)
+
 
 def read_magic_number(path: str) -> bool:
-    try:
-        with open(path) as file:
-            try:
-                num = int(file.readline())
-            except ValueError:
-                print("first line NOT integer")
-                return False
-            if isinstance(num, int) and 1 <= num < 3:
-                return True
-            elif num < 1 or num > 3:
-                return False
-    except IOError:
-        print("File not accessible")
+    if check_file(path):
+        with open(path) as txt_file:
+            first_line = txt_file.readline().split()[0]
+            return True if first_line.isdigit() and first_line in [1, 2] else False

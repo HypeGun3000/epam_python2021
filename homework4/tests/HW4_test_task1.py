@@ -1,28 +1,33 @@
-from homework4.task1.read_file import read_magic_number
+from homework4.task1.read_file import read_magic_number, check_file
+
+import os
 import pytest
-from pathlib import Path
 
 
-root = Path(__file__).parent
-data_file = root / 'data.txt'
+class TestMagicNumber:
+    @pytest.fixture
+    def create_file_with_wrong_fl(self, tmp_path):
+        test_file_path = os.path.join(tmp_path, "data.txt")
+        test_data = "moommy\n51\n2"
+        with open(test_file_path, "w") as file_open:
+            file_open.writelines(test_data)
+            return test_file_path
 
+    @pytest.fixture
+    def create_file_with_true_fl(self, tmp_path):
+        test_file_path = os.path.join(tmp_path, "data2.txt")
+        test_data = "2\n5415wjdglsg"
+        with open(test_file_path, "w") as file_open:
+            file_open.writelines(test_data)
+            return test_file_path
 
-@pytest.fixture
-def fixture_for_all_tests():
-    return read_magic_number
+    def test_if_file_created(self, create_file_with_wrong_fl):
+        assert check_file(create_file_with_wrong_fl)
 
+    def test_if_file_with_true_fl_created(self, create_file_with_true_fl):
+        assert check_file(create_file_with_true_fl)
 
-def test_file_with_non_int_first_line(fixture_for_all_tests):
-    assert fixture_for_all_tests("data.txt") is False
-
-
-def test_file_with_true_first_line(fixture_for_all_tests):
-    assert fixture_for_all_tests("data2.txt") is True
-
-
-def test_file_false_int(fixture_for_all_tests):
-    assert fixture_for_all_tests("data3.txt") is False
-
-
-def test_empty_file(fixture_for_all_tests):
-    assert fixture_for_all_tests("data4.txt") is False
+    def test_with_normal_fl(self, create_file_with_true_fl):
+        print(create_file_with_true_fl)
+        print("123123123123123123123123123")
+        assert read_magic_number(create_file_with_true_fl)
