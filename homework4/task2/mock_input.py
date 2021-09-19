@@ -1,6 +1,4 @@
 import urllib.request
-from mock import Mock
-import unittest.mock
 from bs4 import BeautifulSoup
 
 
@@ -26,16 +24,20 @@ def count_dots_on_i(url: str) -> int:
     22
     * https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen
     """
-    count_of_i = 0
-    get_html_code = urllib.request.urlopen(url)
-    html_text = get_html_code.read().decode("utf-8")
-    soup = BeautifulSoup(html_text, "html.parser")
-    raw_text_form_site = soup.get_text()
-    raw_text_form_siteMock = Mock(soup.get_text())
-    for i in raw_text_form_site:
-        if i == "i":
-            count_of_i += 1
-    return count_of_i
+    return get_text_from_site(url).count("i")
 
 
-#print(count_dots_on_i("https://example.com/"))
+def get_text_from_site(url):
+    try:
+        get_html_code = urllib.request.urlopen(url)
+        if get_html_code.code == 200:
+            html_text = get_html_code.read().decode("utf-8")
+            soup = BeautifulSoup(html_text, "html.parser")
+            raw_text_form_site = soup.get_text()
+            return raw_text_form_site
+    except urllib.error.URLError:
+        print("Not true URL")
+
+
+
+print(count_dots_on_i("https://example.com/"))

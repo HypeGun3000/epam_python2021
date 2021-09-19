@@ -21,7 +21,7 @@ class TestMagicNumber:
             file_open.writelines(test_data)
             return test_file_path
 
-    def test_if_file_created(self, create_file_with_wrong_fl):
+    def test_if_file_with_wrong_fl_created(self, create_file_with_wrong_fl):
         assert check_file(create_file_with_wrong_fl)
 
     def test_if_file_with_true_fl_created(self, create_file_with_true_fl):
