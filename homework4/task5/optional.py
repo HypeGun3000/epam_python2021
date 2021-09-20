@@ -17,6 +17,8 @@ from typing import List, Generator
 
 def fizzbuzz(n: int) -> Generator[str]:
     count = 0
+    for number in range(n):
+
     while count != n:
         if n / 3 == 0:
             count +=1
