@@ -16,19 +16,9 @@ from typing import List, Generator
 
 
 def fizzbuzz(n: int) -> Generator[str]:
-    count = 0
-    for number in range(n):
+    fizz = ""*2 + "fizz"
+    buzz = ""*5 + "buzz"
+    fizzbuzz = ""*15 + "fizzbuzz"
+    yield fizz[n] + buzz[n] + fizzbuzz[n]
 
-    while count != n:
-        if n / 3 == 0:
-            count +=1
-            yield "fizz"
-        elif n/5 == 0:
-            yield "buzz"
-            count += 1
-        elif n/15 == 0:
-            yield "fizzbuzz"
-            count += 1
-        else:
-            yield str(count)
-            count += 1
+fizzbuzz(5)
