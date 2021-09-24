@@ -28,8 +28,6 @@ def instances_counter(cls):
     return InstanceCounter
 
 
-
-
 @instances_counter
 class User:
     pass
