@@ -1,5 +1,5 @@
-from homework4.task5.optional import fizzbuzz
 import pytest
+from homework4.task5.optional import fizzbuzz
 
 
 class TestFizzBuzz:
