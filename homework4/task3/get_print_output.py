@@ -19,13 +19,13 @@ import sys
 
 
 def my_precious_logger(text: str):
-    try:
-        if text.split()[0] == 'error':
-            raise ValueError('File not found')
-        else:
-            return sys.stdout.write(text)
-    except ValueError:
-        return sys.stderr.write("error: file not found\n")
+    sys_stderr = sys.stderr
+    sys_stdout = sys.stdout
+    if text.startswith("error"):
+        sys_stderr.write('error: file not found')
+    else:
+        sys_stdout.write(text)
+
 
 
 print(my_precious_logger('error by file'))
