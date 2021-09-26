@@ -21,18 +21,7 @@ import sys
 def my_precious_logger(text: str):
     sys_stderr = sys.stderr
     sys_stdout = sys.stdout
-<<<<<<< HEAD
     if text.startswith("error"):
         sys_stderr.write('error: file not found')
     else:
         sys_stdout.write(text)
-
-
-
-print(my_precious_logger('error by file'))
-
-print(my_precious_logger("OK"))
-
-=======
-    sys_stderr.write(text) if text.startswith("error") else sys_stdout.write(text)
->>>>>>> 5a56de98d950f1ab94a87e14636499634a9da67d

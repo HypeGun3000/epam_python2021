@@ -36,9 +36,4 @@ def read_magic_number(path: str) -> bool:
     if check_file(path):
         with open(path) as txt_file:
             first_line = txt_file.readline().split()[0]
-<<<<<<< HEAD
             return True if first_line.isdigit() and first_line in ["1", "2"] else False
-=======
-            return True if first_line.isdigit() and int(first_line) in [1, 2] else False
-
->>>>>>> 5a56de98d950f1ab94a87e14636499634a9da67d
