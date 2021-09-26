@@ -9,7 +9,8 @@ class TestCountDotsOnUrl:
     def test_find_count_letter(self, monkeypatch):
         urlopen_mock = Mock()
         urlopen_mock.read.decode = Mock(return_value="iiieee")
-        monkeypatch.setattr("homework4.task2.mock_input.get_body", urlopen_mock.read.decode)
+        monkeypatch.setattr("homework4.task2.mock_input.get_body"
+                            , urlopen_mock.read.decode)
         assert count_dots_on_i("xxxx") == 3
 
     def test_is_exist_url(self):

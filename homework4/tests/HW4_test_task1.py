@@ -28,7 +28,7 @@ class TestMagicNumber:
         assert check_file(create_file_with_true_fl)
 
     def test_with_normal_fl(self, create_file_with_true_fl):
-        assert read_magic_number(create_file_with_true_fl)
+        assert read_magic_number(create_file_with_true_fl) is True
 
     def test_with_false_fl(self, create_file_with_wrong_fl):
-        assert read_magic_number(create_file_with_wrong_fl) is False
+        assert read_magic_number(create_file_with_wrong_fl) is None
