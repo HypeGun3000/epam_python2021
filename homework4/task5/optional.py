@@ -29,5 +29,3 @@ def fizzbuzz(n: int) -> Generator[str, None, None]:
     while count != n:
         count += 1
         yield gen_fizzbuzz[count - 1]
-
-print(list(fizzbuzz(25)))
