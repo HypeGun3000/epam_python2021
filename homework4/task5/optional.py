@@ -7,7 +7,7 @@ Definition of done:
  - function is created
  - function is properly formatted
  - function has tests
->>> list(fizzbuzz(5))
+#>>> list(fizzbuzz(5))
 ["1", "2", "fizz", "4", "buzz"]
 * https://en.wikipedia.org/wiki/Fizz_buzz
 ** https://www.youtube.com/watch?v=NSzsYWckGd4
@@ -16,4 +16,9 @@ from typing import List, Generator
 
 
 def fizzbuzz(n: int) -> Generator[str]:
-    pass
+    fizz = ""*2 + "fizz"
+    buzz = ""*5 + "buzz"
+    fizzbuzz = ""*15 + "fizzbuzz"
+    yield fizz[n] + buzz[n] + fizzbuzz[n]
+
+fizzbuzz(5)
