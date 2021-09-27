@@ -1,5 +1,6 @@
-from homework5.task2.oop2 import print_result
 from unittest.mock import Mock
+
+from homework5.task2.oop2 import print_result
 
 
 class TestOOP2HW5:
