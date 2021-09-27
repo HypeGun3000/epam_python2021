@@ -30,14 +30,19 @@ import os
 
 
 def check_file(path: str) -> bool:
-    if not os.path.exists(path):
-        raise ValueError("No such file")
-    return os.path.exists(path)
+    try:
+        with open(path):
+            return os.path.exists(path)
+    except FileNotFoundError:
+        return os.path.exists(path)
 
 
 def read_magic_number(path: str) -> bool:
     if check_file(path):
         with open(path) as txt_file:
             first_line = txt_file.readline().split()[0]
-            if first_line.isdigit() and first_line in ["1", "2"]:
-                return True
+        if first_line.isdigit() and first_line in ["1", "2"]:
+            return True
+
+
+print(check_file("data2.txt"))

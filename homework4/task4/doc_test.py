@@ -14,18 +14,19 @@ def fizzbuzz(n: int) -> List[str]:
     """
     fuzz_buzz_list = []
     try:
-        try:
-            if n <= 0 and isinstance(n, int):
-                raise ValueError("n must be more then 0 and integer")
-            for i in range(1, n+1):
-                if i % 3 == 0:
-                    fuzz_buzz_list.append("fizz")
-                elif i % 5 == 0:
-                    fuzz_buzz_list.append("buzz")
-                else:
-                    fuzz_buzz_list.append(str(i))
-            return fuzz_buzz_list
-        except ValueError:
-            print("'n' must be more then 0 and integer")
+        if n <= 0 and isinstance(n, int):
+            raise ValueError("n must be more then 0 and integer")
+    except ValueError:
+        return "'n' must be more then 0 and integer"
     except TypeError:
-        print("Write number (integer)")
+        return "Write number (integer)"
+    for i in range(1, n+1):
+        if i % 3 == 0:
+            fuzz_buzz_list.append("fizz")
+        elif i % 5 == 0:
+            fuzz_buzz_list.append("buzz")
+        else:
+            fuzz_buzz_list.append(str(i))
+    return fuzz_buzz_list
+
+print(fizzbuzz(-20))

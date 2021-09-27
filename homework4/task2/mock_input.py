@@ -1,15 +1,16 @@
+import urllib
 from urllib.request import urlopen
 
 
 def get_body(url):
     try:
         response = urlopen(url)
-        if response.code == 200:
-            data = response.read()
-            html = data.decode("UTF-8")
-            return html
-    except Exception:
-        raise ValueError("url doesn't exist")
+    except urllib.error.URLError:
+        raise urllib.error.URLError("url does not exist")
+    if response.code == 200:
+        data = response.read()
+        html = data.decode("UTF-8")
+        return html
 
 
 def count_dots_on_i(url: str) -> int:
