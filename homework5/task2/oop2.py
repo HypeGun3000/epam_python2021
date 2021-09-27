@@ -29,6 +29,6 @@ def custom_func():
 
 
 custom_sum(5, 10)
-print(custom_sum.__doc__)  # 'This function can sum any objects which have __add___'
-print(custom_sum.__name__)  # 'custom_sum'
-print(custom_sum.__original_func)  # <function custom_sum at <some_id>>
+print(custom_sum.__doc__)
+print(custom_sum.__name__)
+print(custom_sum.__original_func)
