@@ -23,6 +23,7 @@ def custom_sum(*args):
     return functools.reduce(lambda x, y: x + y, args)
 
 
+@print_result
 def custom_func():
     return [1, 2, 3]
 
