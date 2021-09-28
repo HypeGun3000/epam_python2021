@@ -17,4 +17,3 @@ class TestCountDotsOnUrl:
             count_dots_on_i("http://wewwwewe.com/")
         except urllib.error.URLError:
             print("test passed")
-

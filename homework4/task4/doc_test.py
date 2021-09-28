@@ -28,5 +28,3 @@ def fizzbuzz(n: int) -> List[str]:
         else:
             fuzz_buzz_list.append(str(i))
     return fuzz_buzz_list
-
-print(fizzbuzz(-20))

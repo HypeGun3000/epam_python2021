@@ -43,6 +43,3 @@ def read_magic_number(path: str) -> bool:
             first_line = txt_file.readline().split()[0]
         if first_line.isdigit() and first_line in ["1", "2"]:
             return True
-
-
-print(check_file("data2.txt"))

@@ -22,10 +22,12 @@ class TestMagicNumber:
             file_open.writelines(test_data)
         return test_file_path
 
-    def test_if_file_with_wrong_first_line_created(self, create_file_with_wrong_first_line):
+    def test_if_file_with_wrong_first_line_created(self,
+                                            create_file_with_wrong_first_line):
         assert check_file(create_file_with_wrong_first_line) is True
 
-    def test_if_file_with_true_first_line_created(self, create_file_with_true_first_line):
+    def test_if_file_with_true_first_line_created(self,
+                                            create_file_with_true_first_line):
         assert check_file(create_file_with_true_first_line) is True
 
     def test_with_normal_first_line(self, create_file_with_true_first_line):
@@ -36,5 +38,3 @@ class TestMagicNumber:
 
     def test_not_real_file(self):
         assert check_file("asdasd/asdasd/fwqww") is False
-
-
