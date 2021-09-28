@@ -1,6 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
+
 from homework5.task1.oop_1 import Homework, Student, Teacher
 
 
