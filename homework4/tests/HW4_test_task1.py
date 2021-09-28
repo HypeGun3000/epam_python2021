@@ -35,4 +35,5 @@ class TestMagicNumber:
         assert read_magic_number(create_file_with_wrong_first_line) is None
 
     def test_not_real_file(self):
-        assert check_file("asdasd/asdasd/fwqww") is False
+        with pytest.raises(FileExistsError):
+            assert check_file("asf/sdfas/asdf") is True

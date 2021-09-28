@@ -34,7 +34,7 @@ def check_file(path: str) -> bool:
         with open(path):
             return os.path.exists(path)
     except FileNotFoundError:
-        return os.path.exists(path)
+        raise FileExistsError("File doesn't exist")
 
 
 def read_magic_number(path: str) -> bool:
