@@ -16,6 +16,7 @@ jobs:
       - name: Run script
         run: |
           pip install flake8 isort pytest
+          cd
           isort --version .
           ls -la
           flake8 .

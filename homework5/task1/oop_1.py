@@ -7,7 +7,7 @@ class Homework:
         if deadline >= 0:
             self.deadline = timedelta(days=deadline)
         else:
-            raise ValueError("Deadline must be more then 0, or equal 0")
+            print("Deadline must be more then 0, or equal 0")
         self.created = datetime.now()
 
     def is_active(self):
