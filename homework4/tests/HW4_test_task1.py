@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from homework4.task1.read_file import check_file, read_magic_number
+from homework4.task1.read_file import read_magic_number
 
 
 class TestMagicNumber:
@@ -22,18 +22,17 @@ class TestMagicNumber:
             file_open.writelines(test_data)
         return test_file_path
 
-    def test_file_wrong_first_line_create(self, create_file_wrong_first_line):
-        assert check_file(create_file_wrong_first_line) is True
+    def test_with_normal_first_line(self, create_file_true_first_line):
+        assert read_magic_number(create_file_true_first_line) is True
 
-    def test_file_true_first_line_create(self, create_file_true_first_line):
-        assert check_file(create_file_true_first_line) is True
+    def test_with_false_first_line(self, create_file_wrong_first_line):
+        with pytest.raises(ValueError):
+            assert read_magic_number(create_file_wrong_first_line) is True
 
-    def test_with_normal_first_line(self, create_file_with_true_first_line):
-        assert read_magic_number(create_file_with_true_first_line) is True
+    def test_false_first_line(self, create_file_wrong_first_line):
+        with pytest.raises(ValueError):
+            assert read_magic_number(create_file_wrong_first_line) is True
 
-    def test_with_false_first_line(self, create_file_with_wrong_first_line):
-        assert read_magic_number(create_file_with_wrong_first_line) is None
-
-    def test_not_real_file(self):
-        with pytest.raises(FileExistsError):
-            assert check_file("asf/sdfas/asdf") is True
+    def test_false_file_magic_number(self):
+        with pytest.raises(ValueError):
+            assert read_magic_number("asfasf/sdfasd/asdf") is True

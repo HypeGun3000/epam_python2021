@@ -2,7 +2,7 @@ import urllib
 from urllib.request import urlopen
 
 
-def get_body(url):
+def get_body(url: str):
     try:
         response = urlopen(url)
     except urllib.error.URLError:
