@@ -37,6 +37,7 @@ if __name__ == '__main__':
 
     print(User.get_created_instances())  # 0
     user, _, _ = User(), User(), User()
-    print(user.get_created_instances())  # 3
-    print(user.reset_instances_counter())
-    print(user.get_created_instances())# 3
+    print(User.get_created_instances())  # 3
+    print(User.reset_instances_counter())
+    print(User.get_created_instances())# 3
+    
