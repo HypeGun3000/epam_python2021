@@ -26,7 +26,7 @@ def tic_tac_toe_checker(board: List[List]) -> str:
     elif tic_tac_toe_same_indexes(board):
         return f'{tic_tac_toe_same_indexes(board)} wins!'
     else:
-        return f'unfinished'
+        return 'unfinished'
 
 
 def tic_tac_toe_horizontal(board: List[List]) -> str:
