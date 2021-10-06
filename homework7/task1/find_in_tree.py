@@ -1,6 +1,5 @@
-from typing import Any
 import itertools
-
+from typing import Any
 
 # Example tree:
 example_tree = {

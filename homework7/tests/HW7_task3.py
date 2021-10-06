@@ -1,7 +1,6 @@
-from homework7.task3.tic_tac_toe import tic_tac_toe_checker
-
-
 import pytest
+
+from homework7.task3.tic_tac_toe import tic_tac_toe_checker
 
 
 class TestTicTacToe:

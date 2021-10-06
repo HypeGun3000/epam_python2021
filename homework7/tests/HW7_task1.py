@@ -1,4 +1,4 @@
-from homework7.task1.find_in_tree import find_occurrences, example_tree
+from homework7.task1.find_in_tree import example_tree, find_occurrences
 
 
 class TestTree:
