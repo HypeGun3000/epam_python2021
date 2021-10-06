@@ -1,8 +1,10 @@
 def backspace_compare(first: str, second: str):
     """
-    Given two strings. Return if they are equal when both are typed into
+    Given two strings. Return if they are equal
+    when both are typed into
     empty text editors. # means a backspace character.
-    Note that after backspacing an empty text, the text will continue empty.
+    Note that after backspacing an empty text,
+    the text will continue empty.
     Examples:
         Input: s = "ab#c", t = "ad#c"
         Output: True
