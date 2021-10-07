@@ -9,7 +9,7 @@ def instances_counter(cls):
 
         def __init__(self):
             self.init_counter()
-            super(cls, cls).__new__(cls)
+            super(cls, cls).__new__(InstanceCounter)
             self.__class__._count += 1
 
         @classmethod
