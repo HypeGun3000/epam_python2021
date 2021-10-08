@@ -6,8 +6,10 @@ data = cursor.fetchall()
 print(data)
 
 class TableData:
-    def __init__(self, presidents):
-        self.presidents = presidents
-
+    def __init__(self, database: str):
+        self.connection = sqlite3.connect(database)
+        self.cursor = self.connection.cursor()
+        self.execute = self.cursor.execute()
+        
 presidents = TableData
 print(len(presidents))
