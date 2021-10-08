@@ -16,23 +16,17 @@ def backspace_compare(first: str, second: str):
         Output: False
         Explanation: s becomes "c" while t becomes "b".
     """
-    while '#' in first:
-        if first.startswith('#'):
-            first = first[1:]
-        if first[-1] == '#':
-            first = first[:-2]
-        if '#' in first:
-            ind_char = first.index("#")
-            first = first[:ind_char-1] + first[ind_char+1:]
-    while '#' in second:
-        if second.startswith('#'):
-            second = second[1:]
-        if second[-1] == '#':
-            second = second[:-2]
-        if '#' in second:
-            ind_char = second.index("#")
-            second = second[:ind_char-1] + second[ind_char+1:]
-    if first == second:
+    def find90(string: str):
+        while '#' in string:
+            try:
+                backspace = string.index("#")
+            except ValueError:
+                return string
+            if backspace == 0:
+                string = string[1:]
+            else:
+                string = string[:backspace - 1] + string[backspace + 1:]
+        return string
+
+    if find90(first) == find90(second):
         return True
-    else:
-        return False

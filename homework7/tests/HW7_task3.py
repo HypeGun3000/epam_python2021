@@ -20,6 +20,10 @@ class TestTicTacToe:
     def unfinished(self):
         return [["x", "-", "o"], ["-", "x", "o"], ["x", "o", "-"]]
 
+    @pytest.fixture
+    def draw(self):
+        return [["x", "o", "o"], ["o", "x", "x"], ["x", "x", "o"]]
+
     def test_vertical_victory(self, vertical_victory_o):
         assert tic_tac_toe_checker(vertical_victory_o) == 'o wins!'
 
@@ -30,4 +34,7 @@ class TestTicTacToe:
         assert tic_tac_toe_checker(diagonal_victory_x) == 'x wins!'
 
     def test_unfinished(self, unfinished):
-        assert tic_tac_toe_checker(unfinished) == 'unfinished'
+        assert tic_tac_toe_checker(unfinished) == 'unfinished!'
+
+    def test_draw_result(self, draw):
+        assert tic_tac_toe_checker(draw) == 'draw!'

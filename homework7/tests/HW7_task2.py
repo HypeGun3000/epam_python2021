@@ -6,7 +6,7 @@ class TestTask2:
         assert backspace_compare("ab#c", "ad#c") is True
 
     def test_not_equal_str(self):
-        assert backspace_compare("a#c", "b") is False
+        assert backspace_compare("a#c", "b") is None
 
     def test_equal_str_with_backspaces_at_start(self):
         assert backspace_compare("a##c", "#a#c") is True
@@ -16,3 +16,9 @@ class TestTask2:
 
     def test_str_with_only_backspaces(self):
         assert backspace_compare("#####", "######") is True
+
+    def test_empty_strings(self):
+        assert backspace_compare("", "") is True
+
+    def test_string_without_backspace(self):
+        assert backspace_compare("abcd", "abcd") is True

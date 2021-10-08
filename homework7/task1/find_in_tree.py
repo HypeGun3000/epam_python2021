@@ -1,4 +1,3 @@
-import itertools
 from typing import Any
 
 # Example tree:
@@ -14,17 +13,19 @@ example_tree = {
             "key1": "value1",
             "key2": "RED",
             "key3": ["a", "lot", "of", "values", {"nested_key": "RED"}],
-            "key4": ["RED", "RED", {"qrdfasf": "RED", "ASF": "RED"}]
+            "key4": ["RED", "RED", {"jhl": "RED", "ASF": "RED"}]
         }
      },
-    "fourth": "RED"
+    "jhl": "RED"
 }
 
 list_of_element = []
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
-    for value in itertools.chain(tree.values()):
+    for key, value in tree.items():
+        if key == element:
+            list_of_element.append(key)
         if isinstance(value, dict):
             find_occurrences(value, element)
         elif isinstance(value, list):
