@@ -25,6 +25,8 @@ def tic_tac_toe_checker(board: List[List]) -> str:
         return f'{tic_tac_toe_vertical(board)} wins!'
     elif tic_tac_toe_same_indexes(board):
         return f'{tic_tac_toe_same_indexes(board)} wins!'
+    elif tic_tac_toe_draw(board):
+        return 'draw!'
     else:
         return 'unfinished'
 
@@ -46,3 +48,10 @@ def tic_tac_toe_same_indexes(board: List[List]) -> str:
         return board[0][0]
     elif board[0][2] == board[1][1] and board[1][1] == board[2][0]:
         return board[0][2]
+
+
+def tic_tac_toe_draw(board: List[List]) -> str:
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == '-':
+                return "draw!"
