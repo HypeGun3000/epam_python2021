@@ -26,9 +26,3 @@ def instances_counter(cls):
                 cls._count = 0
 
     return InstanceCounter
-
-
-@instances_counter
-class User:
-    pass
-    

@@ -9,7 +9,9 @@ from homework6.task2 import oop_2_hw6
 student = oop_2_hw6.Student("Ivanov", "Ivan")
 teacher = oop_2_hw6.Teacher("Smirnova", "Inna")
 hw_end_deadline = oop_2_hw6.Homework("tests2", 0)
-homework_result = oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests", 3), student, "homework_done")
+homework_result = \
+    oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests", 3),
+                             student, "homework_done")
 
 
 class TestSchool:
@@ -20,14 +22,17 @@ class TestSchool:
 
     def test_error_deadline_end(self):
         with pytest.raises(oop_2_hw6.DeadlineError):
-            assert student.do_homework(oop_2_hw6.Homework("tests2", 0), "homework_done")
+            assert student.do_homework(oop_2_hw6.Homework("tests2", 0),
+                                       "homework_done")
 
     def test_negative_deadline(self):
         with pytest.raises(ValueError):
-            assert student.do_homework(oop_2_hw6.Homework("tests3", -3), "homework_done")
+            assert student.do_homework(oop_2_hw6.Homework("tests3", -3),
+                                       "homework_done")
 
     def test_positive_deadline(self):
-        assert student.do_homework(oop_2_hw6.Homework("tests", 3), "answer_for_all_tasks")
+        assert student.do_homework(oop_2_hw6.Homework("tests", 3),
+                                   "answer_for_all_tasks")
 
     def test_creating_homework(self):
         create_homework = teacher.create_homework("Test debug", 3)
@@ -39,7 +44,9 @@ class TestSchool:
         clean_homework
 
     def test_check_wrong_homework_solution(self, clean_homework):
-        assert teacher.check_homework(oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests", 3), student, "Pass")) is False
+        assert teacher.check_homework(oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests", 3),
+                                                               student,
+                                                               "Pass")) is False
         clean_homework
 
     def test_check_wrong_homework_duplicate(self, clean_homework):
@@ -64,7 +71,8 @@ class TestSchool:
     def test_reset_single_result(self, clean_homework):
         homework1 = oop_2_hw6.Homework("Create new fixture", 2)
         student2 = oop_2_hw6.Student("Petrov", "Mikhail")
-        homework_result1 = oop_2_hw6.HomeworkResult(homework1, student2, "Solution")
+        homework_result1 = oop_2_hw6.HomeworkResult(homework1,
+                                                    student2, "Solution")
         create_homework2 = teacher.create_homework("create web site", 3)
         solution2 = student2.do_homework(create_homework2, "done task")
         teacher.check_homework(homework_result1)

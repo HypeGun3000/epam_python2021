@@ -51,7 +51,8 @@ class Teacher(Student):
 
     def check_duplicate(self, homework_result):
         author_info = (
-            f'{homework_result.author.last_name} {homework_result.author.first_name}'
+            f'{homework_result.author.last_name} '
+            f'{homework_result.author.first_name}'
         )
         homework_info = (
             author_info,
@@ -60,7 +61,8 @@ class Teacher(Student):
         )
         if self._homework_db[homework_result.homework]:
             for homework in self._homework_db[homework_result.homework]:
-                if homework[0] == homework_info[0] or homework[1] == homework_info[1]:
+                if homework[0] == homework_info[0] or \
+                        homework[1] == homework_info[1]:
                     return False
         self._homework_db[homework_result.homework].append(homework_info)
         return True
@@ -69,8 +71,9 @@ class Teacher(Student):
         return Homework(text, deadline)
 
     def check_homework(self, homework_result):
-        if len(homework_result.solution) > 5 and self.check_duplicate(homework_result):
-            self.homework_done[homework_result.homework].append(homework_result)
+        if len(homework_result.solution) > 5 and\
+                self.check_duplicate(homework_result):
+            self.homework_done[homework_result.homework].append(homework_result) #E501
             return True
         return False
 
