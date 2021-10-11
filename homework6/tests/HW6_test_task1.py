@@ -3,7 +3,6 @@ from collections import defaultdict
 
 import pytest
 
-
 from homework6.task2 import oop_2_hw6
 
 student = oop_2_hw6.Student("Ivanov", "Ivan")
@@ -44,17 +43,22 @@ class TestSchool:
         clean_homework
 
     def test_check_wrong_homework_solution(self, clean_homework):
-        assert teacher.check_homework(oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests", 3),
-                                                               student,
-                                                               "Pass")) is False
+        assert teacher. \
+                   check_homework(oop_2_hw6.
+                                  HomeworkResult(oop_2_hw6.
+                                                 Homework("tests", 3),
+                                                 student,
+                                                 "Pass")) is False
         clean_homework
 
     def test_check_wrong_homework_duplicate(self, clean_homework):
         student2 = oop_2_hw6.Student("Shitko", "Roman")
         assert teacher.check_homework(homework_result)
         assert teacher.check_homework(homework_result) is False
-        assert teacher.check_homework(oop_2_hw6.HomeworkResult(oop_2_hw6.Homework("tests_new", 3),
-                                                               student2, "new_homework_done"))
+        assert teacher. \
+            check_homework(oop_2_hw6.
+                           HomeworkResult(oop_2_hw6.Homework("tests_new", 3),
+                                          student2, "new_homework_done"))
         clean_homework
 
     def test_reset_results_homework(self, clean_homework):
