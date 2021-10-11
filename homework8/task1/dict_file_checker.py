@@ -18,10 +18,3 @@ class KeyValueStorage:
 
     def __getitem__(self, item):
         return self.__dict__[item]
-
-
-x = KeyValueStorage("task1.txt")
-print(x.__dict__)
-print(x.power)
-print(x['name'])
-print(x.qwe)
