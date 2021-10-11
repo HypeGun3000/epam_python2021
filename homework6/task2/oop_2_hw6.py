@@ -29,7 +29,7 @@ class Homework:
         self.created = datetime.now()
 
     def is_active(self):
-        return self.created + self.deadline < datetime.now()
+        return self.created + self.deadline > datetime.now()
 
 
 class Student:
@@ -40,9 +40,9 @@ class Student:
     def do_homework(self, homework: Homework, solution):
         student = Student.__call__(self.last_name, self.first_name)
         if homework.is_active():
-            raise DeadlineError
-        else:
             return HomeworkResult(homework, student,  solution)
+        else:
+            raise DeadlineError
 
 
 class Teacher(Student):
