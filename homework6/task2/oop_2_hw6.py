@@ -73,7 +73,8 @@ class Teacher(Student):
     def check_homework(self, homework_result):
         if len(homework_result.solution) > 5 and\
                 self.check_duplicate(homework_result):
-            self.homework_done[homework_result.homework].append(homework_result) #E501
+            self.homework_done[homework_result.homework].\
+                append(homework_result)
             return True
         return False
 
