@@ -25,6 +25,9 @@ class TableData:
                     print(f'{item} in {self.table}')
                     return True
 
+    def __iter__(self):
+        
+
 
 if __name__ == '__main__':
     presidents = TableData(database_name='example.sqlite', table_name='presidents')
