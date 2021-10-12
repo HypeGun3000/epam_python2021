@@ -18,7 +18,7 @@ class TestTask2:
         assert backspace_compare("#####", "######") is True
 
     def test_empty_strings(self):
-        assert backspace_compare("", "") is True
+        assert backspace_compare("", "s#") is True
 
     def test_string_without_backspace(self):
         assert backspace_compare("abcd", "abcd") is True

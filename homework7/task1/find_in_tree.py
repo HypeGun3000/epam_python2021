@@ -6,11 +6,11 @@ example_tree = {
     "second": {
         "simple_key": ["simple", "list", "of", "RED", "valued"],
     },
-    "third": {
-        "abc": "BLUE",
+    ("jhl", "URL", "TWITTER"): {
+        "abc": {"BLUE", "PULL", "RED", True},
         "jhl": "RED",
         "complex_key": {
-            "key1": "value1",
+            "key1": ("YELLOW", "SWIM", "RED", False, None),
             "key2": "RED",
             "key3": ["a", "lot", "of", "values", {"nested_key": "RED"}],
             "key4": ["RED", "RED", {"jhl": "RED", "ASF": "RED"}]
@@ -19,22 +19,28 @@ example_tree = {
     "jhl": "RED"
 }
 
-list_of_element = []
+count = 0
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
+    global count
     for key, value in tree.items():
-        if key == element:
-            list_of_element.append(key)
+        if isinstance(key, str):
+            if key == element:
+                count += 1
+        else:
+            for i in key:
+                if i == element:
+                    count += 1
         if isinstance(value, dict):
             find_occurrences(value, element)
-        elif isinstance(value, list):
+        elif isinstance(value, str):
+            if value == element:
+                count += 1
+        else:
             for i in value:
                 if isinstance(i, dict):
                     find_occurrences(i, element)
                 if i == element:
-                    list_of_element.append(i)
-        elif isinstance(value, str):
-            if value == element:
-                list_of_element.append(value)
-    return len(list_of_element)
+                    count += 1
+    return count

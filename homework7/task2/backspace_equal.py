@@ -16,7 +16,7 @@ def backspace_compare(first: str, second: str):
         Output: False
         Explanation: s becomes "c" while t becomes "b".
     """
-    def find90(string: str):
+    def find(string: str):
         while '#' in string:
             try:
                 backspace = string.index("#")
@@ -28,5 +28,5 @@ def backspace_compare(first: str, second: str):
                 string = string[:backspace - 1] + string[backspace + 1:]
         return string
 
-    if find90(first) == find90(second):
+    if find(first) == find(second):
         return True
