@@ -2,21 +2,16 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 
 
+class Human:
+    def __init__(self, last_name: str, first_name: str):
+        self.last_name = last_name
+        self.first_name = first_name
+
+
 class DeadlineError(Exception):
     def __init__(self, message="You are late"):
         self.message = message
         super().__init__(self.message)
-
-
-class HomeworkResult:
-    def __init__(self, homework, student, solution: str):
-        if isinstance(homework, Homework):
-            self.homework = homework
-        else:
-            raise ValueError("homework must be Homework obj")
-        self.solution = solution
-        self.author = student
-        self.created = datetime.now()
 
 
 class Homework:
@@ -32,12 +27,8 @@ class Homework:
         return self.created + self.deadline > datetime.now()
 
 
-class Student:
-    def __init__(self, last_name, first_name):
-        self.last_name = last_name
-        self.first_name = first_name
-
-    def do_homework(self, homework: Homework, solution):
+class Student(Human):
+    def do_homework(self, homework: Homework, solution:str):
         student = Student.__call__(self.last_name, self.first_name)
         if homework.is_active():
             return HomeworkResult(homework, student,  solution)
@@ -45,9 +36,19 @@ class Student:
             raise DeadlineError
 
 
-class Teacher(Student):
+class HomeworkResult:
+    def __init__(self, homework: Homework, student: Student, solution: str):
+        if isinstance(homework, Homework):
+            self.homework = homework
+        else:
+            raise ValueError("homework must be Homework obj")
+        self.solution = solution
+        self.author = student
+        self.created = datetime.now()
+
+
+class Teacher(Human):
     homework_done = defaultdict(list)
-    _homework_db = defaultdict(list)
 
     def check_duplicate(self, homework_result):
         author_info = (
@@ -59,12 +60,12 @@ class Teacher(Student):
             homework_result.solution,
             homework_result.homework.text,
         )
-        if self._homework_db[homework_result.homework]:
-            for homework in self._homework_db[homework_result.homework]:
+        if self.homework_done[homework_result.homework]:
+            for homework in self.homework_done[homework_result.homework]:
                 if homework[0] == homework_info[0] or \
                         homework[1] == homework_info[1]:
                     return False
-        self._homework_db[homework_result.homework].append(homework_info)
+        self.homework_done[homework_result.homework].append(homework_info)
         return True
 
     def create_homework(self, text: str, deadline: int):
@@ -82,8 +83,6 @@ class Teacher(Student):
     def reset_results(cls, **kwargs):
         if not kwargs:
             cls.homework_done = defaultdict(list)
-            cls._homework_db = defaultdict(list)
         else:
             key = list(kwargs.keys())[0]
             del cls.homework_done[kwargs[key]]
-            del cls._homework_db[kwargs[key]]
