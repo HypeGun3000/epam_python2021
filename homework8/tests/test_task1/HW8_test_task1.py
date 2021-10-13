@@ -1,7 +1,8 @@
-from homework8.task1.dict_file_checker import KeyValueStorage
-import pytest
 import os
 
+import pytest
+
+from homework8.task1.dict_file_checker import KeyValueStorage
 
 FILE_PATH = os.path.join(os.getcwd(), "test1.txt")
 

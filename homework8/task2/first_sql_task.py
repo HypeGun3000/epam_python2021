@@ -7,7 +7,8 @@ class TableData:
         self.connection = sqlite3.connect(kwargs["database_name"])
         self.table = kwargs["table_name"]
         self.cursor = self.connection.cursor()
-        self.execute = self.cursor.execute(f'SELECT * FROM {kwargs["table_name"]}')
+        self.execute = \
+            self.cursor.execute(f'SELECT * FROM {kwargs["table_name"]}')
         self.data = self.execute.fetchall()
         self.columns = [column[0] for column in self.cursor.description]
 
@@ -32,7 +33,9 @@ class TableData:
         name, *other = self.columns
         other_columns = " ".join(other)
         self.unique_value_column = [name[0] for name in query]
-        self.column = namedtuple("Presidents_column", f"{name} {other_columns}")
+        self.column = \
+            namedtuple("Presidents_column",
+                       f"{name} {other_columns}")
         self.start = 0
         return self
 
