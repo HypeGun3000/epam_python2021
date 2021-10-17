@@ -5,17 +5,14 @@ class TestDB:
     presidents = TableData(database_name='example.sqlite',
                            table_name='presidents')
 
-    def test_data_fetchall(self):
-        assert self.presidents.data == [('Yeltsin', 999, 'Russia'),
-                                        ('Trump', 1337, 'US'),
-                                        ('Big Man Tyrone', 101,
-                                         'Kekistan')]
-
     def test_len_presidents(self):
         assert len(self.presidents) == 3
 
     def test_call_president(self):
         assert self.presidents['Yeltsin'] == ('Yeltsin', 999, 'Russia')
+
+    def test_call_president_second(self):
+        assert self.presidents['Trump'] == ('Trump', 1337, 'US')
 
     def test_check_for_president_in_presidents(self):
         assert 'Yeltsin' in self.presidents

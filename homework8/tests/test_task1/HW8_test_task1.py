@@ -18,6 +18,6 @@ class TestDictFileChecker:
         assert self.x['name'] == 'kek'
 
     def test_method_incorrect_method(self):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(AttributeError) as error:
             print(self.x.wrong_attribute)
         assert error.value.args[0] == "Wrong attribute"
