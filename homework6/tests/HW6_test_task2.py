@@ -39,6 +39,7 @@ class TestSchool:
         assert create_homework.text == "Test debug"
 
     def test_check_homework(self, clean_homework):
+        print(type(teacher.homework_done[homework_result]))
         assert teacher.check_homework(homework_result)
         clean_homework
 

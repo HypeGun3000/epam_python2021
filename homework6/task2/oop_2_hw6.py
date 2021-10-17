@@ -28,7 +28,7 @@ class Homework:
 
 
 class Student(Human):
-    def do_homework(self, homework: Homework, solution:str):
+    def do_homework(self, homework: Homework, solution: str):
         student = Student.__call__(self.last_name, self.first_name)
         if homework.is_active():
             return HomeworkResult(homework, student,  solution)
@@ -48,7 +48,7 @@ class HomeworkResult:
 
 
 class Teacher(Human):
-    homework_done = defaultdict(list)
+    homework_done = defaultdict(set)
 
     def check_duplicate(self, homework_result):
         author_info = (
@@ -60,29 +60,27 @@ class Teacher(Human):
             homework_result.solution,
             homework_result.homework.text,
         )
-        if self.homework_done[homework_result.homework]:
-            for homework in self.homework_done[homework_result.homework]:
-                if homework[0] == homework_info[0] or \
-                        homework[1] == homework_info[1]:
-                    return False
-        self.homework_done[homework_result.homework].append(homework_info)
+        for i in homework_info:
+            if i in self.homework_done[homework_result.homework]:
+                return False
+        for i in homework_info:
+            self.homework_done[homework_result.homework].add(i)
         return True
 
     def create_homework(self, text: str, deadline: int):
         return Homework(text, deadline)
 
     def check_homework(self, homework_result):
-        if len(homework_result.solution) > 5 and\
-                self.check_duplicate(homework_result):
-            self.homework_done[homework_result.homework].\
-                append(homework_result)
+        if len(homework_result.solution) > 5 and self.check_duplicate(homework_result):
+            for i in homework_result:
+                self.homework_done[homework_result.homework].add(i)
             return True
         return False
 
     @classmethod
     def reset_results(cls, **kwargs):
         if not kwargs:
-            cls.homework_done = defaultdict(list)
+            cls.homework_done = defaultdict(set)
         else:
             key = list(kwargs.keys())[0]
             del cls.homework_done[kwargs[key]]
