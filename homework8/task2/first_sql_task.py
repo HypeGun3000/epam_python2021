@@ -44,8 +44,7 @@ class TableData:
 
     def __next__(self):
         if self.start >= len(
-                self.cursor.
-                        execute(f"SELECT * FROM {self.table}").fetchall()
+                self.cursor.execute(f"SELECT * FROM {self.table}").fetchall()
         ):
             raise StopIteration
         self.current_row = self.cursor.execute(
