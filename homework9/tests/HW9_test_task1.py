@@ -1,7 +1,6 @@
-from homework9.task1.file_iterator import merge_sorted_files
-
-
 import pytest
+
+from homework9.task1.file_iterator import merge_sorted_files
 
 
 class TestMergeFiles:

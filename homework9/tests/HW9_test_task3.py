@@ -1,8 +1,9 @@
-from homework9.task3.count_tokenaizer import universal_file_counter
-import pytest
 import os
-
 from pathlib import Path
+
+import pytest
+
+from homework9.task3.count_tokenaizer import universal_file_counter
 
 
 class TestUniFileCounter:

@@ -1,7 +1,6 @@
-from pathlib import Path
-from typing import Optional, Callable
-
 import os
+from pathlib import Path
+from typing import Callable, Optional
 
 dir_path = os.getcwd()
 
