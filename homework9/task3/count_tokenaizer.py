@@ -2,17 +2,13 @@ import os
 from pathlib import Path
 from typing import Callable, Optional
 
-dir_path = os.getcwd()
-
 
 def get_files_with_extension(dir_path: Path, file_extension: str):
-    files_with_extension = []
     if not os.path.isdir(dir_path):
         raise NotADirectoryError("It's not a directory")
-    for file in os.listdir(dir_path):
-        if file.endswith(file_extension):
-            files_with_extension.append(file)
-    return files_with_extension
+    p = Path('.')
+    files_list = list(p.glob(f"**/*.{file_extension}"))
+    return files_list
 
 
 def universal_file_counter(dir_path: Path, file_extension: str,
@@ -30,8 +26,4 @@ def universal_file_counter(dir_path: Path, file_extension: str,
             for line in file.readlines():
                 if tokenizer(line):
                     count_of_tokens += 1
-        return count_of_tokens
-
-
-print(universal_file_counter(dir_path, ".txt"))
-print(universal_file_counter(dir_path, ".txt", str.split))
+    return count_of_tokens

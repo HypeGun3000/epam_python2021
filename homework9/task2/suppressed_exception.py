@@ -14,9 +14,7 @@ class Supressor:
 
 @contextmanager
 def my_context_manager(error):
-    print('enter')
     try:
         yield
     except error:
-        print('exit')
         return
