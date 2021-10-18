@@ -12,9 +12,7 @@ class TableData:
         self.columns = [column[0] for column in self.cursor.description]
 
     def __len__(self):
-        return len(self.connection.cursor().
-                   execute(f'SELECT * FROM {self.table}').
-                   fetchall())
+        return len(self.execute.fetchall())
 
     def __getitem__(self, item: str):
         query = self.connection.cursor(). \
@@ -32,20 +30,15 @@ class TableData:
                 return True
 
     def __iter__(self):
-        query = self.connection.cursor(). \
-            execute(f"SELECT * from {self.table}")
+        query = self.cursor.execute(f"SELECT * from {self.table}")
         name = self.columns[0]
         self.unique_value_column = [name[0] for name in query]
-        self.column = \
-            namedtuple("Presidents_column",
-                       f"{name}")
+        self.column = namedtuple("Presidents_column", f"{name}")
         self.start = 0
         return self
 
     def __next__(self):
-        if self.start >= len(
-                self.cursor.execute(f"SELECT * FROM {self.table}").fetchall()
-        ):
+        if self.start >= len(self.cursor.execute(f"SELECT * FROM {self.table}").fetchall()):
             raise StopIteration
         self.current_row = self.cursor.execute(
             f"SELECT * FROM {self.table} WHERE name=:value",
