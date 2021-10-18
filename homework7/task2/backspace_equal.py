@@ -17,16 +17,10 @@ def backspace_compare(first: str, second: str):
         Explanation: s becomes "c" while t becomes "b".
     """
     def find(string: str):
-        while '#' in string:
-            try:
-                backspace = string.index("#")
-            except ValueError:
-                return string
-            if backspace == 0:
-                string = string[1:]
-            else:
-                string = string[:backspace - 1] + string[backspace + 1:]
-        return string
+        return ''.join([
+            "" if char == "#" or i == string.find("#", i) - 1 else char
+            for i, char in enumerate(string)
+        ])
 
     if find(first) == find(second):
         return True
