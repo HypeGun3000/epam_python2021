@@ -29,9 +29,8 @@ class Homework:
 
 class Student(Human):
     def do_homework(self, homework: Homework, solution: str):
-        student = Student.__call__(self.last_name, self.first_name)
         if homework.is_active():
-            return HomeworkResult(homework, student,  solution)
+            return HomeworkResult(homework, Student(self.last_name, self.first_name),  solution)
         else:
             raise DeadlineError
 
@@ -71,7 +70,8 @@ class Teacher(Human):
         return Homework(text, deadline)
 
     def check_homework(self, homework_result):
-        if len(homework_result.solution) > 5 and self.check_duplicate(homework_result):
+        if len(homework_result.solution) > 5 and\
+                self.check_duplicate(homework_result):
             self.homework_done[homework_result.homework].add(homework_result)
             return True
         return False
