@@ -72,8 +72,7 @@ class Teacher(Human):
 
     def check_homework(self, homework_result):
         if len(homework_result.solution) > 5 and self.check_duplicate(homework_result):
-            for i in homework_result:
-                self.homework_done[homework_result.homework].add(i)
+            self.homework_done[homework_result.homework].add(homework_result)
             return True
         return False
 

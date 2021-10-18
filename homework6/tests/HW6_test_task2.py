@@ -16,8 +16,8 @@ homework_result = \
 class TestSchool:
     @pytest.fixture
     def clean_homework(self):
-        oop_2_hw6.Teacher.homework_done = defaultdict(list)
-        oop_2_hw6.Teacher._homework_db = defaultdict(list)
+        oop_2_hw6.Teacher.homework_done = defaultdict(set)
+        oop_2_hw6.Teacher._homework_db = defaultdict(set)
 
     def test_error_deadline_end(self):
         with pytest.raises(oop_2_hw6.DeadlineError):
@@ -39,7 +39,6 @@ class TestSchool:
         assert create_homework.text == "Test debug"
 
     def test_check_homework(self, clean_homework):
-        print(type(teacher.homework_done[homework_result]))
         assert teacher.check_homework(homework_result)
         clean_homework
 
