@@ -15,5 +15,3 @@ class TestMetaClass:
 
     def test_attribute_from_SizesEnum(self):
         assert SizesEnum.XL == "XL"
-
-

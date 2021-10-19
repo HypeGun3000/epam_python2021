@@ -1,4 +1,4 @@
-from homework11.task2.discounts import Order, morning_discount, elder_discount
+from homework11.task2.discounts import Order, elder_discount, morning_discount
 
 
 class TestDiscounts:
