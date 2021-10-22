@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Moderna Inc",
+    "code": "MRNA",
+    "P/E": "-59.95",
+    "potential profit": 431.68,
+    "price": 24106.21,
+    "growth": "367.83%"
+  },
+  {
+    "name": "Devon Energy Corp.",
+    "code": "DVN",
+    "P/E": "-167.13",
+    "potential profit": 34.23,
+    "price": 2819.03,
+    "growth": "345.67%"
+  },
+  {
+    "name": "Marathon Oil Corp.",
+    "code": "MRO",
+    "P/E": "-5.60",
+    "potential profit": 13.11,
+    "price": 1150.04,
+    "growth": "285.23%"
+  },
+  {
+    "name": "Diamondback Energy Inc",
+    "code": "FANG",
+    "P/E": "15.58",
+    "potential profit": 91.1,
+    "price": 7732.98,
+    "growth": "275.33%"
+  },
+  {
+    "name": "Occidental Petroleum Corp.",
+    "code": "OXY",
+    "P/E": "-4.41",
+    "potential profit": 26.05,
+    "price": 2329.2,
+    "growth": "207.99%"
+  },
+  {
+    "name": "APA Corporation Registered Shs",
+    "code": "APA",
+    "P/E": "-13.09",
+    "potential profit": 20.73,
+    "price": 1917.45,
+    "growth": "179.50%"
+  },
+  {
+    "name": "SVB Financial Group Shs",
+    "code": "SIVB",
+    "P/E": "16.38",
+    "potential profit": 442.35,
+    "price": 50058.17,
+    "growth": "153.50%"
+  },
+  {
+    "name": "Albemarle Corp.",
+    "code": "ALB",
+    "P/E": "35.35",
+    "potential profit": 163.03,
+    "price": 16606.78,
+    "growth": "151.75%"
+  },
+  {
+    "name": "EOG Resources Inc.",
+    "code": "EOG",
+    "P/E": "33.20",
+    "potential profit": 62.2,
+    "price": 6455.87,
+    "growth": "148.99%"
+  },
+  {
+    "name": "Bath & Body Works",
+    "code": "BBWI",
+    "P/E": "14.17",
+    "potential profit": 26.86,
+    "price": 4903.31,
+    "growth": "145.27%"
+  }
+]

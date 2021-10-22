@@ -2,6 +2,7 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 import lxml
+import json
 from homework10.parc_cb_cours import get_valute_course_in_rubles
 
 url_site = "https://markets.businessinsider.com/index/components/s&p_500?p="
@@ -102,6 +103,28 @@ def get_information_from_every_company_page(headers: dict):
         timer += 1
     return company_page_info
 
+def add_information_in_dicts(list_of_info):
+    new_list = []
+    dict_of_example = {
+        "name": None,
+        "code": None,
+        "P/E": None,
+        "potential profit": None,
+        "price": None,
+        "growth": None
+    }
+    for i in range(len(list_of_info)):
+        for n, k in enumerate(dict_of_example.keys()):
+            dict_of_example[k] = list_of_info[i][n]
+        new_list.append(dict_of_example.copy())
+
+    return new_list
+
+
+def add_json_files(file_name: str, top_companies: list):
+    with open(file_name, 'w') as file:
+        json.dump(top_companies, file, indent=2, ensure_ascii=False)
+
 
 if __name__ == "__main__":
     start_time = datetime.datetime.now()
@@ -109,11 +132,15 @@ if __name__ == "__main__":
     get_information_from_every_company_page(headers)
     get_title_information_from_all_pages(url_site, headers)
     get_price_in_rubles()
-    print(get_year_groth())
-    print(sorted(company_page_info, key=lambda rubl: rubl[4], reverse=True)[:10])
-    print(sorted(company_page_info, key=lambda rubl: rubl[2], reverse=False)[:10])
-    print(sorted(company_page_info, key=lambda rubl: float((rubl[5])[:-1]), reverse=True)[:10])
-    print(sorted(company_page_info, key=lambda rubl: rubl[3], reverse=True)[:10])
-    print(datetime.datetime.now() - start_time)
+    get_year_groth()
 
+    top_10_price = sorted(company_page_info, key=lambda rubl: rubl[4], reverse=True)[:10]
+    top_10_lowest_p_e = sorted(company_page_info, key=lambda rubl: float(rubl[2].replace(',', '')), reverse=False)[:10]
+    top_10_groth = sorted(company_page_info, key=lambda rubl: float((rubl[5])[:-1]), reverse=True)[:10]
+    top_10_potential_profit = sorted(company_page_info, key=lambda rubl: rubl[3], reverse=True)[:10]
+    add_json_files("top_10_price.json", add_information_in_dicts(top_10_price))
+    add_json_files("top_10_lowest_p_e.json", add_information_in_dicts(top_10_lowest_p_e))
+    add_json_files("top_10_groth.json", add_information_in_dicts(top_10_groth))
+    add_json_files("top_10_potential_profit.json", add_information_in_dicts(top_10_potential_profit))
+    print(datetime.datetime.now() - start_time)
 
