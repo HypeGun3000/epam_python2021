@@ -30,12 +30,7 @@ class Homework:
 class Student(Human):
     def do_homework(self, homework: Homework, solution: str):
         if homework.is_active():
-            return HomeworkResult(homework,
-                                  Student(
-                                      self.last_name,
-                                      self.first_name),
-                                  solution
-                                  )
+            return HomeworkResult(homework, student, solution)
         else:
             raise DeadlineError
 

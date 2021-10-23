@@ -1,10 +1,11 @@
 def instances_counter(cls):
-    class InstanceCounter:
+    class InstanceCounter(cls):
         _count = 0
 
         def __init__(self):
-            super(cls, cls).__new__(InstanceCounter)
+            #super(cls, cls).__new__(InstanceCounter)
             self.__class__._count += 1
+
 
         @classmethod
         def get_created_instances(cls):
@@ -12,9 +13,8 @@ def instances_counter(cls):
 
         @classmethod
         def reset_instances_counter(cls):
-            try:
-                return cls._count
-            finally:
-                cls._count = 0
+            last_count = cls._count
+            cls._count = 0
+            return last_count
 
     return InstanceCounter
