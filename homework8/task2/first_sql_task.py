@@ -15,15 +15,13 @@ class TableData:
         return len(self.execute.fetchall())
 
     def __getitem__(self, item: str):
-        query = self.connection.cursor(). \
-            execute(f'SELECT * FROM {self.table}')
+        query = self.cursor.execute(f'SELECT * FROM {self.table}')
         for president in query:
             if item in president:
                 return president
 
     def __contains__(self, item: str):
-        query = self.connection.cursor(). \
-            execute(f'SELECT * FROM {self.table}')
+        query = self.cursor.execute(f'SELECT * FROM {self.table}')
         for president in query:
             if item in president:
                 print(f'{item} in {self.table}')

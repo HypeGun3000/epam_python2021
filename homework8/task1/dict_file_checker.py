@@ -13,7 +13,7 @@ class KeyValueStorage:
     def __getattr__(self, item: str):
         if item not in self.__dict__:
             raise AttributeError("Wrong attribute")
-        return item
+        return self.__dict__[item]
 
     def __getitem__(self, item: str):
         return self.__dict__[item]
