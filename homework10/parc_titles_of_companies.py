@@ -2,6 +2,7 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 import lxml
+from multiprocessing import Pool
 import json
 from homework10.parc_cb_cours import get_valute_course_in_rubles
 
@@ -127,6 +128,9 @@ def add_json_files(file_name: str, top_companies: list):
 
 
 if __name__ == "__main__":
+    with Pool(50) as pool:
+        pool_res = pool.map(get_information_from_every_company_page, [i for i in range(0, 502)])
+
     start_time = datetime.datetime.now()
     get_links_for_all_companies(headers)
     get_information_from_every_company_page(headers)
