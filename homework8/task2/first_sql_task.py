@@ -1,5 +1,4 @@
 import sqlite3
-from collections import namedtuple
 
 
 class TableData:
@@ -27,22 +26,4 @@ class TableData:
                 print(f'{item} in {self.table}')
                 return True
 
-    def __iter__(self):
-        query = self.cursor.execute(f"SELECT * from {self.table}")
-        name = self.columns[0]
-        self.unique_value_column = [name[0] for name in query]
-        self.column = namedtuple("Presidents_column", f"{name}")
-        self.start = 0
-        return self
 
-    def __next__(self):
-        if self.start >= len(self.cursor.execute(f"SELECT * FROM {self.table}").fetchall()):
-            raise StopIteration
-        self.current_row = self.cursor.execute(
-            f"SELECT * FROM {self.table} WHERE name=:value",
-            {"value": self.unique_value_column[self.start]},
-        ).fetchone()
-        name = self.current_row
-        column = self.column(name)._asdict()
-        self.start += 1
-        return column
