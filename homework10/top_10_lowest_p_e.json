@@ -4,39 +4,39 @@
     "code": "VNO",
     "P/E": "-893.45",
     "potential profit": 21.1,
-    "price": 3178.24,
-    "growth": "33.28%"
+    "price": 3181.72,
+    "growth": "39.82%"
   },
   {
     "name": "Chevron Corp.",
     "code": "CVX",
     "P/E": "-427.45",
     "potential profit": 47.99,
-    "price": 7935.31,
-    "growth": "55.69%"
+    "price": 7996.81,
+    "growth": "59.63%"
   },
   {
     "name": "Devon Energy Corp.",
     "code": "DVN",
     "P/E": "-167.13",
     "potential profit": 34.23,
-    "price": 2819.03,
-    "growth": "345.67%"
+    "price": 2867.09,
+    "growth": "370.98%"
   },
   {
     "name": "ExxonMobil Corp. (Exxon Mobil)",
     "code": "XOM",
     "P/E": "-125.36",
     "potential profit": 33.81,
-    "price": 4451.81,
-    "growth": "86.01%"
+    "price": 4474.95,
+    "growth": "93.26%"
   },
   {
     "name": "Phillips 66",
     "code": "PSX",
     "P/E": "-76.53",
     "potential profit": 51.04,
-    "price": 5868.07,
+    "price": 5868.82,
     "growth": "59.68%"
   },
   {
@@ -44,23 +44,23 @@
     "code": "UAA",
     "P/E": "-64.50",
     "potential profit": 13.32,
-    "price": 1487.96,
-    "growth": "65.07%"
+    "price": 1463.31,
+    "growth": "50.64%"
   },
   {
     "name": "Incyte Corp.",
     "code": "INCY",
     "P/E": "-63.09",
     "potential profit": 37.39,
-    "price": 4676.14,
-    "growth": "-26.69%"
+    "price": 4662.03,
+    "growth": "-25.90%"
   },
   {
     "name": "Twitter",
     "code": "TWTR",
     "P/E": "-62.10",
     "potential profit": 41.81,
-    "price": 4643.48,
+    "price": 4406.93,
     "growth": "41.08%"
   },
   {
@@ -68,15 +68,15 @@
     "code": "MRNA",
     "P/E": "-59.95",
     "potential profit": 431.68,
-    "price": 24106.21,
-    "growth": "367.83%"
+    "price": 23139.38,
+    "growth": "387.07%"
   },
   {
     "name": "Under Armour Inc When Issued",
     "code": "UA",
     "P/E": "-55.67",
     "potential profit": 10.64,
-    "price": 1287.06,
+    "price": 1267.02,
     "growth": "76.67%"
   }
 ]
