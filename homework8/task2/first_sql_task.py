@@ -26,4 +26,19 @@ class TableData:
                 print(f'{item} in {self.table}')
                 return True
 
+    def __iter__(self):
+        dictionary = {}
+        query = self.cursor.execute(f'SELECT * FROM {self.table}')
+        print(query[0])
+        for i in range(len(self.columns)):
+            dictionary[self.columns[i]] = query[0]
+        return dictionary
+
+
+
+
+
+
+
+
 
