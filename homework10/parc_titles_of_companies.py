@@ -70,10 +70,14 @@ def get_links_for_all_companies(headers: dict):
         count_page += 1
 
 
+
+
 def get_information_from_every_company_page(headers: dict):
     timer = 1
     global company_page_info
     list_of_one_company_code_name = []
+    with Pool(4) as pool:
+        pl = pool.map()
     for link in list_of_all_links:
         request = requests.get(link, headers=headers)
         src = request.text
