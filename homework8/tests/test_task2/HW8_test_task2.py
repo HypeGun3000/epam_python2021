@@ -22,6 +22,6 @@ class TestDB:
 
     def test_iteration_of_presidents_column_name(self):
         count_of_all_presidents = []
-        for president in self.presidents:
-            count_of_all_presidents.append(president['country'])
+        for president in TableData:
+            print(president)
         assert len(count_of_all_presidents) == 3
