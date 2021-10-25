@@ -48,7 +48,7 @@ class HomeworkResult:
 class Teacher(Human):
     homework_done = defaultdict(set)
 
-    def check_duplicate(self, homework_result):
+    def check_duplicate(self, homework_result: HomeworkResult):
         author_info = (
             f'{homework_result.author.last_name} '
             f'{homework_result.author.first_name}'
@@ -68,7 +68,7 @@ class Teacher(Human):
     def create_homework(self, text: str, deadline: int):
         return Homework(text, deadline)
 
-    def check_homework(self, homework_result):
+    def check_homework(self, homework_result: HomeworkResult):
         if len(homework_result.solution) > 5 and \
                 self.check_duplicate(homework_result):
             self.homework_done[homework_result.homework].add(homework_result)
