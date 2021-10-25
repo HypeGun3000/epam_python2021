@@ -27,12 +27,16 @@ class TableData:
                 return True
 
     def __iter__(self):
-        dictionary = {}
+        dict_of_information = {}
         query = self.cursor.execute(f'SELECT * FROM {self.table}')
-        print(query[0])
-        for i in range(len(self.columns)):
-            dictionary[self.columns[i]] = query[0]
-        return dictionary
+        for info in query:
+            for j in range(len(info)):
+                dict_of_information[self.columns[j]] = info[j]
+            yield dict_of_information
+
+
+
+
 
 
 
