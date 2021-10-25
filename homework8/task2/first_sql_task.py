@@ -33,16 +33,3 @@ class TableData:
             for j in range(len(info)):
                 dict_of_information[self.columns[j]] = info[j]
             yield dict_of_information
-
-
-
-
-
-
-
-
-
-
-
-
-
