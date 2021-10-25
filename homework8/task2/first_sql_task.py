@@ -10,26 +10,26 @@ class TableData:
             self.cursor.execute(f'SELECT * FROM {kwargs["table_name"]}')
         self.columns = [column[0] for column in self.cursor.description]
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.execute.fetchall())
 
-    def __getitem__(self, item: str):
+    def __getitem__(self, item: str) -> str:
         query = self.cursor.execute(f'SELECT * FROM {self.table}')
         for president in query:
             if item in president:
                 return president
 
-    def __contains__(self, item: str):
+    def __contains__(self, item: str) -> bool:
         query = self.cursor.execute(f'SELECT * FROM {self.table}')
         for president in query:
             if item in president:
-                print(f'{item} in {self.table}')
                 return True
 
-    def __iter__(self):
+    def __iter__(self) -> iter:
         dict_of_information = {}
         query = self.cursor.execute(f'SELECT * FROM {self.table}')
         for info in query:
             for j in range(len(info)):
                 dict_of_information[self.columns[j]] = info[j]
+                print(dict_of_information)
             yield dict_of_information

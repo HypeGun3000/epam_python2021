@@ -10,7 +10,7 @@ class KeyValueStorage:
                 except ValueError:
                     self.__dict__[i[0]] = i[1]
 
-    def __getattr__(self, item: str):
+    def __getattr__(self, item: str) -> str:
         if item not in self.__dict__:
             raise AttributeError("Wrong attribute")
         return self.__dict__[item]
