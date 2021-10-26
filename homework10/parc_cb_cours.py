@@ -1,5 +1,6 @@
-import requests
 from xml.dom import minidom
+
+import requests
 
 url_cbank = "https://www.cbr.ru/scripts/XML_daily.asp?date_req="
 
