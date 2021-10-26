@@ -15,5 +15,5 @@ class KeyValueStorage:
             raise AttributeError("Wrong attribute")
         return self.__dict__[item]
 
-    def __getitem__(self, item: str):
+    def __getitem__(self, item: str) -> str:
         return self.__dict__[item]

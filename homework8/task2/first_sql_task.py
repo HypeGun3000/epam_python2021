@@ -25,7 +25,6 @@ class TableData:
             if item in president:
                 return True
 
-    def __iter__(self):
+    def __iter__(self) -> iter:
         query = self.cursor.execute(f'SELECT * FROM {self.table}')
-        for i in query:
-            return iter(i)
+        return iter(query)
