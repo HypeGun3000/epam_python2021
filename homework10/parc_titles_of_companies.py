@@ -89,7 +89,8 @@ def get_info_from_company(link: str):
                " snapshot__data-item--right")
 
     list_of_one_company_code_name.append(company_name.text.strip())
-    list_of_one_company_code_name.append(company_code.text.strip().split(', ')[-1])
+    list_of_one_company_code_name.\
+        append(company_code.text.strip().split(', ')[-1])
     list_of_one_company_code_name.append(False)
     for i in company_p_e:
         if "P/E Ratio" in i.text:
@@ -116,19 +117,22 @@ def get_info_from_company(link: str):
 def get_price_in_rubles():
     global company_page_info
     for i in range(len(company_page_info)):
-        company_page_info[i].append(list_of_information_from_all_title_pages[i][1])
+        company_page_info[i].\
+            append(list_of_information_from_all_title_pages[i][1])
     return company_page_info
 
 
 def get_year_groth():
     global company_page_info
     for i in range(len(company_page_info)):
-        company_page_info[i].append(list_of_information_from_all_title_pages[i][-1])
+        company_page_info[i].\
+            append(list_of_information_from_all_title_pages[i][-1])
     return company_page_info
 
 
 def convert_dollars_in_rub(company: list):
-    company[4] = round(float(company[4]) * get_valute_course_in_rubles("USD"), 2)
+    company[4] = round(float(company[4]) *
+                       get_valute_course_in_rubles("USD"), 2)
     return company
 
 

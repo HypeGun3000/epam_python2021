@@ -36,6 +36,7 @@ def get_valute_course_in_rubles(char_code):
                 if child.tagName == "CharCode":
                     char_code_of_valute = child.firstChild.data
                 if child.tagName == "Value":
-                    value_of_valute = float(child.firstChild.data.replace(",", "."))
+                    value_of_valute =\
+                        float(child.firstChild.data.replace(",", "."))
         if char_code_of_valute == char_code:
             return value_of_valute
