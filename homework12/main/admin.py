@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Human, Homework, Student, HomeworkResult, Teacher
 
+from .models import Homework, HomeworkResult, Human, Student, Teacher
 
 admin.site.register(Human)
 admin.site.register(Homework)

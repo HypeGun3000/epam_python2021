@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
-from main.models import Human, Homework, Student, HomeworkResult, Teacher
+
+from main.models import Homework, HomeworkResult, Human, Student, Teacher
 
 
 class Command(BaseCommand):
