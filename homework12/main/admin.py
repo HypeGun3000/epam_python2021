@@ -7,4 +7,3 @@ admin.site.register(Homework)
 admin.site.register(Student)
 admin.site.register(HomeworkResult)
 admin.site.register(Teacher)
-

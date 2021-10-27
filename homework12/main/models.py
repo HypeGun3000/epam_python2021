@@ -20,8 +20,10 @@ class Homework(models.Model):
 
 
 class Student(models.Model):
-    first_name_student = models.CharField('First Student name', max_length=50, null=True)
-    last_name_student = models.CharField('Last Student name', max_length=50, null=True)
+    first_name_student =\
+        models.CharField('First Student name', max_length=50, null=True)
+    last_name_student =\
+        models.CharField('Last Student name', max_length=50, null=True)
     comment = models.TextField('Comment your table add', null=True)
 
     def __str__(self):
@@ -30,7 +32,8 @@ class Student(models.Model):
 
 class HomeworkResult(models.Model):
     text = models.TextField('Text homework', null=True)
-    last_name_student = models.CharField('Last Student name', max_length=50, null=True)
+    last_name_student =\
+        models.CharField('Last Student name', max_length=50, null=True)
     solution = models.TextField("Homework solution", null=True)
     comment = models.TextField('Comment your table add', null=True)
 
@@ -39,8 +42,10 @@ class HomeworkResult(models.Model):
 
 
 class Teacher(models.Model):
-    first_name_teacher = models.CharField('First Teacher name', max_length=50, null=True)
-    last_name_teacher = models.CharField('Last Teacher name', max_length=50, null=True)
+    first_name_teacher =\
+        models.CharField('First Teacher name', max_length=50, null=True)
+    last_name_teacher =\
+        models.CharField('Last Teacher name', max_length=50, null=True)
     comment = models.TextField('Comment your table add', null=True)
 
     def __str__(self):
