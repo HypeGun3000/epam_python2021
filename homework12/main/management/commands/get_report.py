@@ -13,7 +13,7 @@ class Command(BaseCommand):
                 csv_writer.writerow([i.last_name_student,
                                      i.data_created,
                                      i.last_name_teacher])
-        return f'Done'
+        return csv_writer
 
     def get_objects(self):
         return HomeworkResult.objects.all()
