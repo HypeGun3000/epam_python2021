@@ -13,6 +13,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='homeworkresult',
             name='last_name_teacher',
-            field=models.CharField(max_length=50, null=True, verbose_name='Last Teacher name'),
+            field=models.CharField(max_length=50,
+                                   null=True,
+                                   verbose_name='Last Teacher name'),
         ),
     ]
