@@ -9,6 +9,7 @@ class Command(BaseCommand):
         self.student_add()
         self.homeworkresult_add()
         self.teacher_add()
+        self.homeworkresult2_add()
 
     def human_add(self):
         human = Human(
@@ -42,6 +43,16 @@ class Command(BaseCommand):
             text='Create 3D model',
             last_name_student='Classico',
             solution='3D model ...',
+            comment='Have some questions...'
+        )
+        homeworkresult.save()
+        return homeworkresult
+
+    def homeworkresult2_add(self):
+        homeworkresult = HomeworkResult(
+            text='Write some Pythone code',
+            last_name_student='Dubenko',
+            solution='some python code... if ... in ...',
             comment='Have some questions...'
         )
         homeworkresult.save()

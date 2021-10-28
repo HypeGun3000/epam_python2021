@@ -34,7 +34,10 @@ class HomeworkResult(models.Model):
     text = models.TextField('Text homework', null=True)
     last_name_student =\
         models.CharField('Last Student name', max_length=50, null=True)
+    last_name_teacher =\
+        models.CharField('Last Teacher name', max_length=50, null=True)
     solution = models.TextField("Homework solution", null=True)
+    data_created = models.DateTimeField("Add datatime", null=True)
     comment = models.TextField('Comment your table add', null=True)
 
     def __str__(self):
